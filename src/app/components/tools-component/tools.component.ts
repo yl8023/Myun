@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-tools',
@@ -6,7 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tools.component.less']
 })
 export class ToolsComponent implements OnInit {
-
+  @Input() alia: any = [];
+  @Input() tns: any = [];
+  @Input() fee: any;
+  @Input() mv: any;
   constructor() { }
 
   ngOnInit(): void {

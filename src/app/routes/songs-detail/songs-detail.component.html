@@ -52,7 +52,10 @@
             </div>
             <div class="songs-tags">
                 <span>标签：</span>
-                <span><a href="">{{sonsDetail.tags | listPipe}}</a></span>
+                <span *ngFor="let tag of sonsDetail.tags; let i = index">
+                    <a href="">{{tag}}</a>
+                    <span style="padding: 0 2px;" *ngIf="i < sonsDetail.tags.length - 1">/</span>
+                </span>
             </div>
             <div class="sons-medium text-flow">
                 <span>简介：{{sonsDetail.description}}</span>

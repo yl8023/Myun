@@ -16,14 +16,9 @@
           </td>
           <td nzEllipsis>
             <span>{{data.name}}</span>
-            <span *ngFor="let item of data.alia">({{item}})</span>
-            <span *ngFor="let item of data.tns">({{item}})</span>
-            <nz-tag *ngIf="data.fee" class="music-sq" nzColor="error">SQ</nz-tag>
-            <span *ngIf="data.mv" class="music-mv">
-              <i nz-icon nzType="play-square" nzTheme="outline"></i>
-            </span>
+            <app-tools [alia]="data.alia" [tns]="data.tns" [fee]="data.fee" [mv]="data.mv"></app-tools>
           </td>
-          <td nzEllipsis><span *ngFor="let singer of data.ar">{{singer.name}}</span></td>
+          <td nzEllipsis><span>{{ data.ar | listPipe: 'name'}}</span></td>
           <td nzEllipsis>{{data.al.name}}</td>
           <td class="music-color">{{data.dt | date: 'mm:ss'}}</td>
         </tr>

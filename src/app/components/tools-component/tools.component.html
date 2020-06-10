@@ -1,1 +1,6 @@
-<p>tools-component works!</p>
+<span *ngFor="let item of alia">({{item}})</span>
+<span *ngFor="let item of tns">({{item}})</span>
+<nz-tag *ngIf="fee" class="music-sq" nzColor="error">SQ</nz-tag>
+<span *ngIf="mv" class="music-mv">
+    <i nz-icon nzType="play-square" nzTheme="outline"></i>
+</span>
