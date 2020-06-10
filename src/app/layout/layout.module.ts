@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 
-import { NgxAudioPlayerModule } from 'ngx-audio-player';
-
 import { LayoutComponent } from './layout.component';
 import { LayoutRoutingModule } from './layout-routing.module';
 import { FooterComponent } from './components/footer/footer.component';
@@ -27,8 +25,7 @@ import { PlayListComponent } from './components/play-list/play-list.component';
   imports: [
     CommonModule,
     LayoutRoutingModule,
-    SharedModule,
-    NgxAudioPlayerModule
+    SharedModule
   ]
 })
 export class LayoutModule { }
