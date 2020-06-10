@@ -24,6 +24,8 @@ export class FooterComponent implements OnInit {
   nowMusic: SongModel;
   footerPlayModel: number;
   childIcon: boolean = false;
+  audioCurrentTime: number = 0;
+  audioDuration: number = 160;
   Operations = { //music操作
     'stop': () => {
       this.audioElement.nativeElement.pause();
@@ -43,6 +45,15 @@ export class FooterComponent implements OnInit {
   }
   ngOnInit(): void {
     this.iconService.fetchFromIconfont({scriptUrl: '../../../assets/iconfont/iconfont.js'});// 加载额外iconfont图标
+  }
+  //music进度条
+  musicSlider(): void{
+    this.audioCurrentTime = Math.round(this.audioElement.nativeElement.currentTime*1000);
+    this.getTime();
+  }
+  //获取一次当前music时长
+  getTime(): void {
+    this.audioDuration = Math.round(this.audioElement.nativeElement.duration*1000);
   }
   changeModel(model: any): void{
     this.footerPlayModel = model;
