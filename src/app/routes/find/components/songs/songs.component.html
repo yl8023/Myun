@@ -1,0 +1,21 @@
+<nz-layout class="component-main">
+    <div class="tabs-btn-box">
+        <app-tabs-select *ngIf="reload" [tabIndex]="textIndex" (reload)="reloadEl($event)"></app-tabs-select>
+    </div>
+    <article>
+        <label>热门标签:</label>
+        <nz-tag class="tabs-item" *ngFor="let tab of tabs" nzColor="default">{{tab}}</nz-tag>
+    </article>
+    <div nz-row [nzGutter]="[16, 24]" class="all-item-box">
+        <div nz-col class="gutter-row" [nzSpan]="6" *ngFor="let item of data;let i = index">
+            <div class="inner-box">
+                <p class="listen-people">
+                    <i nz-icon nzType="customer-service" nzTheme="outline"></i>
+                    <span>{{item.number}}</span>
+                </p>
+                <img [src]="item.image" [alt]="item.text">
+                <p class="inner-text">{{item.text}}</p>
+            </div>
+        </div>
+    </div>
+</nz-layout>

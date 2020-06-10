@@ -1,0 +1,80 @@
+<nz-layout class="component-main">
+    <div nz-row class="songs-info">
+        <div nz-col nzFlex="200px" class="songs-pic-box">
+            <i class="loading-img" *ngIf="!sonsDetail" nz-icon nzType="loading" nzTheme="outline"></i>
+            <img *ngIf="sonsDetail" [src]="sonsDetail.coverImgUrl+'?param=200y200'" alt="">
+        </div>
+        <div *ngIf="sonsDetail" nz-col nzFlex="auto" class="songs-text-info">
+            <div class="songs-info-name">
+                <div class="songs-name text-flow">{{sonsDetail.name}}</div>
+                <div nz-row class="songs-num-box">
+                    <div class="songs-num">
+                        <p>歌曲数</p>
+                        <p>{{sonsDetail.trackIds.length}}</p>
+                    </div>
+                    <div class="songs-num">
+                        <p>播放数</p>
+                        <p>{{sonsDetail.playCount | playCount}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="songs-info-user">
+                <nz-avatar nzSize="large" [nzSrc]="sonsDetail.creator.avatarUrl+'?param=40y40'"></nz-avatar>
+                <span class="user-name">{{sonsDetail.creator.nickname}}</span>
+                <span class="create-time">{{sonsDetail.createTime | date:"yyyy-MM-dd"}}创建</span>
+            </div>
+            <div class="songs-operations">
+                <nz-button-group nzSize="small" class="op-btn-group">
+                    <button nz-button nzDanger nzType="primary" (click)="songList.addAlltoPlay()">
+                        <i nz-icon nzType="play-circle" nzTheme="outline"></i>
+                        <span>播放全部</span>
+                    </button>
+                    <button nz-button nzDanger nzType="primary">
+                        <i nz-icon nzType="plus" nzTheme="outline"></i>
+                    </button>
+                </nz-button-group>
+                <button class="op-btn" nz-button nzSize="small">
+                    <i nz-icon nzType="folder-add" nzTheme="outline"></i>
+                    <span>收藏</span>
+                    <span>({{sonsDetail.subscribedCount | playCount}})</span>
+                </button>
+
+                <button class="op-btn" nz-button nzSize="small">
+                    <i nz-icon nzType="share-alt" nzTheme="outline"></i>
+                    <span>分享</span>
+                    <span>({{sonsDetail.shareCount}})</span>
+                </button>
+
+                <button class="op-btn" nz-button nzSize="small">
+                    <i nz-icon nzType="download" nzTheme="outline"></i>
+                    <span>下载全部</span>
+                </button>
+            </div>
+            <div class="songs-tags">
+                <span>标签：</span>
+                <span><a href="">{{sonsDetail.tags | listPipe}}</a></span>
+            </div>
+            <div class="sons-medium text-flow">
+                <span>简介：{{sonsDetail.description}}</span>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="sonsDetail">
+        <nz-tabset [nzTabBarStyle]="{'padding':'0 50px', 'margin':'0'}">
+            <nz-tab nzTitle="歌曲列表">
+                <ng-template nz-tab>
+                    <app-song-list #songList [trackIds]="sonsDetail.trackIds"></app-song-list>
+                </ng-template>
+            </nz-tab>
+            <nz-tab [nzTitle]="'评论('+sonsDetail.commentCount+')'">
+                <ng-template nz-tab>
+                    <app-comment></app-comment>
+                </ng-template>
+            </nz-tab>
+            <nz-tab nzTitle="收藏者">
+                <ng-template nz-tab>
+                </ng-template>
+            </nz-tab>
+        </nz-tabset>
+    </div>
+</nz-layout>

@@ -1,0 +1,106 @@
+.main-layout{
+    height: 100%;
+}
+::ng-deep {
+    .ant-menu-item-group-title{
+        padding-bottom: 0;
+        padding-left: 2px;
+    }
+    .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected{
+        background-color: #e6e7ea;
+        color: #111;
+        .anticon{
+            color: #111;
+        }
+        a:hover{
+            color:#111;
+        }
+    }
+    .ant-menu-item:hover{
+        color: #111;
+        a:hover{
+            color:#111;
+        }
+    }
+    .ant-menu-inline .ant-menu-item:after{
+        right: unset;
+        left: 0;
+        border-color: #c62f2f;
+    }
+    .ant-divider-horizontal.ant-divider-with-text-left::after{
+        border-color: #7d7d7d;
+    }
+    .ant-divider-horizontal.ant-divider-with-text-left::before{
+        border-color: #7d7d7d;
+        width: 0;
+    }
+    .ant-btn-group-sm > .ant-btn.ant-btn-icon-only{
+        width: 40px;
+    }
+    .header-btn{
+        margin-right: 16px;
+        .ant-btn-primary{
+            background-color: #c62f2f;
+            border-color: #a82828;
+        }
+    }
+    .ant-layout-header{
+        background-color: #c62f2f;
+    }
+}
+.logo {
+    width: 120px;
+    height: 31px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px 30px 16px 0;
+    float: left;
+  }
+  .search-input{
+    width: 240px;
+    padding: 0px 12px;
+    border-radius: 14px;
+    background-color: #a82828;
+    border-color: #a82828;
+    input{
+        font-size: 14px;
+        color: #c77373;
+        background-color: #a82828;
+    }
+  }
+.divider-text{
+    font-size: 14px;
+    color: #7d7d7d;
+    margin: 4px;
+    margin-left: 0;
+}
+.item-active{
+    color: #111;
+}
+.sider-menu {
+    height: 100%;
+    border-right: 0;
+    background-color: #f5f5f7;
+    border-right:1px solid #e1e1e2;
+    padding-bottom: 65px;
+    .sider-menu-item{
+        margin-bottom: 4px;
+    }
+}
+
+nz-breadcrumb {
+    margin: 16px 0;
+}
+.inner-layout {
+    background-color: #fafafa;
+    nz-content {
+        min-height: 280px;
+    }
+}
+.footer-box {
+    height: 50px;
+    padding: 0 0 0 20px;
+    position: relative;
+    background-color: #f5f5f7;
+    border-top:1px solid #e1e1e2;
+    
+}

@@ -1,0 +1,53 @@
+<nz-layout class="main-layout">
+  <nz-header>
+    <div nz-row>
+      <div class="logo" nz-col nzFlex="120px">
+
+      </div>
+      <div nz-row nz-col nzFlex="auto" >
+        <div nz-col nzFlex="auto">
+          <nz-button-group nzSize="small" class="header-btn">
+            <button nz-button nzType="primary"><i nz-icon nzType="left"></i></button>
+            <button nz-button nzType="primary"><i nz-icon nzType="right"></i></button>
+          </nz-button-group>
+          <nz-input-group [nzSuffix]="suffixIcon" class="search-input">
+            <input nz-input [(ngModel)]="inputValue" (ngModelChange)="onChange($event)" placeholder="搜索音乐，视频，歌词，电台"/>
+          </nz-input-group>
+          <ng-template #suffixIcon>
+            <i nz-icon nzType="search"></i>
+          </ng-template>
+        </div>
+        <div nz-col nzFlex="400px">
+
+        </div>
+      </div>
+    </div>
+    
+  </nz-header>
+  <nz-layout>
+    <nz-sider nzWidth="200px" nzTheme="light">
+      <ul nz-menu nzMode="inline" class="sider-menu" >
+        <li nz-menu-group *ngFor="let item of Menu; let i = index">
+          <nz-divider title [nzText]="item.title" nzOrientation="left" class="divider-text"></nz-divider>
+          <ul>
+            <li nz-menu-item class="sider-menu-item" *ngFor="let li of item.children; let k = index" (click)="menuClick(k)" [nzSelected]="li.select">
+              <i nz-icon [nzType]="li.icon" nzTheme="outline"></i>
+              <a [routerLink]="li.link" [routerLinkActive]="li.linkClass">{{li.text}}</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nz-sider>
+    <nz-layout class="layout-scrollbar">
+      <ngx-loading-bar [includeSpinner]="false" [color]="'#555'" [fixed]="false" height="4px"></ngx-loading-bar>
+      <nz-layout class="inner-layout">
+        <nz-content>
+          <router-outlet></router-outlet>
+        </nz-content>
+      </nz-layout>
+    </nz-layout>
+  </nz-layout>
+  <nz-footer class="footer-box">
+    <app-footer></app-footer>
+  </nz-footer>
+</nz-layout>

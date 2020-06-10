@@ -1,0 +1,81 @@
+::ng-deep{
+    .ant-card-body{
+        padding: 0 16px;
+        height: 100%;
+    }
+    .ant-typography-expand.ng-star-inserted{
+        display: none;
+    }
+}
+nz-layout{
+    .carousel-box{
+        height: 300px;
+        margin-bottom: 20px;
+        
+    }
+    nz-carousel {
+        max-width: 752px;
+        margin: auto;
+        height: 300px;
+    }
+    
+    [nz-carousel-content] {
+        height: 300px;
+        line-height: 300px;
+        text-align: center;
+        user-select: none;
+        font-size: 24px;
+        font-family: Vollkorn, 'PingFang SC', 'Helvetica', Arial;
+        background: #555;
+    }
+    .title-item{
+        .title{
+            border-bottom: 1px solid #e1e1e2;
+            span{
+                font-size: 18px;
+                color: #333;
+            }
+            .more{
+                float: right;
+                color: #444;
+            }
+        }
+        .card-box{
+            display: flex;
+            flex-flow: row wrap;
+            .card-body-box{
+                height: 100%;
+                position: relative;
+                .card-text{
+                    display: block;
+                    text-align: left;
+                    padding:6px 0;
+                }
+            }
+        }
+        nz-card{
+            min-width: 172px;
+            min-height: 140px;
+            max-height: 180px;
+            text-align: center;
+            border-color: #fafafa;
+            background-color: #fafafa;
+            margin-bottom: 56px;
+            flex: 0 0 20%;
+            .every-day {
+                text-align: center;
+                border:1px solid #e5e5e5;
+                background-color: #fff;
+                div{
+                    font-size: 70px;
+                    color: #c62f2f;
+                    line-height: 60px;
+                }
+            }
+            .every-day,img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}

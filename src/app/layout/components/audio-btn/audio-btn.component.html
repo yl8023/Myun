@@ -1,0 +1,12 @@
+<div class="set-btn">
+    <button nz-button nzType="primary" nzShape="circle" nzSize="default" (click)="sendOp(0)">
+        <i nz-icon nzType="step-backward" nzTheme="outline"></i>
+    </button>
+    <button class="center-btn" nz-button nzType="primary" nzShape="circle" nzSize="large" (click)="toggFn()">
+        <i *ngIf="startTogg" nz-icon nzType="pause" nzTheme="outline"></i>
+        <i *ngIf="!startTogg" nz-icon nzType="caret-right" nzTheme="outline"></i>
+    </button>
+    <button nz-button nzType="primary" nzShape="circle" nzSize="default" (click)="sendOp(1)">
+        <i nz-icon nzType="step-forward" nzTheme="outline"></i>
+    </button>
+</div>

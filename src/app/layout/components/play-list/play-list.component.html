@@ -1,0 +1,51 @@
+<div class="play-list" nz-dropdown [nzDropdownMenu]="menuList" [nzPlacement]="'topRight'" [nzTrigger]="'click'">
+    <nz-badge [nzCount]="data.length" [nzOffset]="[15,0]">
+        <i nz-icon nzType="unordered-list" nzTheme="outline"></i>
+    </nz-badge>
+</div>
+<nz-dropdown-menu #menuList="nzDropdownMenu">
+    <div class="dropdown-list">
+        <div class="dropdown-header">
+            <nz-button-group nzSize="small">
+                <button nz-button (click)="toggerButton(true)" [nzType]="toggerDropdown?'primary':'default'"
+                    nzDanger>播放列表</button>
+                <button nz-button (click)="toggerButton(false)" [nzType]="!toggerDropdown?'primary':'default'"
+                    nzDanger>历史记录</button>
+            </nz-button-group>
+        </div>
+        <div class="dropdown-body">
+            <nz-table #middleTable [nzFrontPagination]="false" nzSize="middle" [nzData]="data"
+                [nzShowPagination]="false" [nzLoading]="tableLoading" nzTableLayout="fixed" [nzScroll]="{ y: '462px' }">
+                <thead>
+                    <tr>
+                        <th nzAlign="left" nzWidth="360px">总共{{data.length}}首</th>
+                        <th nzAlign="right" nzWidth="140px">
+                            <span *ngIf="toggerDropdown">
+                                <i nz-icon nzType="folder-add" nzTheme="outline"></i>
+                                收藏全部
+                            </span>
+                        </th>
+                        <th nzAlign="left">
+                            <span>
+                                <i nz-icon nzType="delete" nzTheme="outline"></i>
+                                清除
+                            </span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="scroll-bar">
+                    <tr *ngFor="let data of middleTable.data">
+                        <td nzEllipsis class="music-name">{{ data.name }}</td>
+                        <td nzEllipsis class="music-player">
+                            <span>{{ data.age }}</span>
+                            <i nz-icon nzType="link" nzTheme="outline"></i>
+                        </td>
+                        <td nzAlign="center">
+                            {{data.dt | date: 'mm:ss'}}
+                        </td>
+                    </tr>
+                </tbody>
+            </nz-table>
+        </div>
+    </div>
+</nz-dropdown-menu>

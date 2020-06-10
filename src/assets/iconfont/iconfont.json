@@ -1,0 +1,44 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "248760",
+      "name": "list",
+      "font_class": "list",
+      "unicode": "e64c",
+      "unicode_decimal": 58956
+    },
+    {
+      "icon_id": "3061394",
+      "name": "danquxunhuan",
+      "font_class": "danquxunhuan",
+      "unicode": "e653",
+      "unicode_decimal": 58963
+    },
+    {
+      "icon_id": "5184717",
+      "name": "random",
+      "font_class": "random",
+      "unicode": "e6eb",
+      "unicode_decimal": 59115
+    },
+    {
+      "icon_id": "11183734",
+      "name": "xunhuan",
+      "font_class": "xunhuan",
+      "unicode": "e5cb",
+      "unicode_decimal": 58827
+    },
+    {
+      "icon_id": "12831203",
+      "name": "xunhuan",
+      "font_class": "xunhuan1",
+      "unicode": "e67e",
+      "unicode_decimal": 59006
+    }
+  ]
+}

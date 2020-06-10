@@ -1,0 +1,47 @@
+.play-list{
+    line-height: 48px;
+    text-align: center;
+}
+.dropdown-list{
+    width:600px;
+    box-shadow: 0 3px 6px -4px rgba(0,0,0,.12), 0 6px 16px 0 rgba(0,0,0,.08), 0 9px 28px 8px rgba(0,0,0,.05);
+    .dropdown-header{
+        padding: 6px; 
+        text-align: center;
+        background-color: #f3f3f5;
+    }
+    .dropdown-body{
+        th{
+            color: #666;
+        }
+        th:hover{
+            color: #444;
+        }
+        td{
+            i{
+                position: absolute;
+                right: 0;
+                line-height: 22px;
+            }
+            .music-player:hover span{
+                color: #111;
+            }
+        }
+        .music-name{
+            color: #111;
+        }
+        .music-player{
+            padding:0 20px 0 8px;
+            color: #666;
+        }
+        .music-player:hover span{
+            color:#444;
+        }
+        th, td{
+            padding: 5px;
+        }
+        th:first-child, td:first-child{
+            padding-left: 24px;
+        }
+    }
+}

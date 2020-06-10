@@ -1,0 +1,24 @@
+<nz-layout class="main-content">
+    <div>
+        <nz-tabset [(nzSelectedIndex)]="tabsetIndex" nzAnimated="false" [nzTabBarStyle]="{'text-align':'center'}">
+            <nz-tab nzTitle="个性推荐">
+                <ng-template nz-tab>
+                    <app-recommend (linkTabIndex)="onChangeIndex($event)"></app-recommend>
+                </ng-template>
+            </nz-tab>
+            <nz-tab nzTitle="歌单">
+                <ng-template nz-tab>
+                    <app-songs></app-songs>
+                </ng-template>
+            </nz-tab>
+            <nz-tab nzTitle="主播电台">
+            </nz-tab>
+            <nz-tab nzTitle="排行榜">
+            </nz-tab>
+            <nz-tab nzTitle="歌手">
+            </nz-tab>
+            <nz-tab nzTitle="最新音乐">
+            </nz-tab>
+        </nz-tabset>
+    </div>
+</nz-layout>

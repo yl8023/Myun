@@ -1,0 +1,11 @@
+<button class="play-mode" nz-button nzSize="large" nzGhost="true" nz-dropdown [nzDropdownMenu]="menu"
+    [nzPlacement]="'topLeft'">
+    <i nz-icon [nzIconfont]="iconList[iconSel].icon"></i>
+</button>
+
+<nz-dropdown-menu #menu="nzDropdownMenu">
+    <ul nz-menu>
+        <li nz-menu-item [ngClass]="{'item-selected': iconSel == i}" *ngFor="let item of iconList; let i = index"
+            (click)="checkDrop(i)"><i nz-icon [nzIconfont]="item.icon"></i>{{item.text}}</li>
+    </ul>
+</nz-dropdown-menu>

@@ -1,0 +1,45 @@
+<div class="playing-box" nz-row>
+  <div nz-col nzFlex="54px">
+    <img [src]="nowMusic.al.picUrl+'?param=53y53'">
+  </div>
+  <div nz-col nzFlex="136px" class="m-detail">
+    <div nz-row>
+      <p nz-col nzFlex="113px" class="play-name">{{nowMusic.name}}</p>
+      <p nz-col nzFlex="22px" class="play-icon">
+        <i nz-icon nzType="heart" nzTheme="outline" nz-col nzFlex="22px"></i>
+      </p>
+    </div>
+    <div nz-row>
+      <p nz-col nzFlex="113px" class="player"><span *ngFor="let singer of nowMusic.ar">{{singer.name}}</span></p>
+      <p nz-col nzFlex="22px" class="play-icon">
+        <i nz-icon nzType="share-alt" nzTheme="outline"></i>
+      </p>
+    </div>
+  </div>
+</div>
+<div nz-row>
+  <div nz-col nzFlex="180px">
+    <app-audio-btn [startTogg]="childIcon" (musicEvent)="getMusicOperation($event)"></app-audio-btn>
+  </div>
+  <div nz-col nzFlex="auto">
+    <app-audio-slider *ngIf="audioElement" [currentTime]="audioElement.nativeElement.currentTime*1000" [duration]="audioElement.nativeElement.duration*1000"></app-audio-slider>
+  </div>
+  <div nz-col nzFlex="340px" nz-row class="right-footer-box">
+    <div nz-col nzFlex="120px">
+      <app-audio-volume></app-audio-volume>
+    </div>
+    <app-play-mode (playModel)="changeModel($event)"></app-play-mode>
+
+    <div nz-col nzFlex="108px">
+    </div>
+    <div nz-col nzFlex="56px">
+      <app-play-list [listPlayModel]="footerPlayModel" (musicLength)="getMusicLength($event)" (musicPlay)="nowMusicPlay($event)"></app-play-list>
+    </div>
+  </div>
+</div>
+<audio #audioElm>
+  <source [src]="musicUrl" type="audio/mpeg">
+</audio>
+
+
+

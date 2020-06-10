@@ -1,0 +1,33 @@
+<div class="table-box">
+  <nz-spin [nzSpinning]="isLoading" nzDelay="100">
+    <nz-table #songTable [nzData]="songList" nzSimple nzTableLayout="fixed" nzSize="small" [nzShowPagination]="false"
+      [nzFrontPagination]="false">
+      <thead>
+        <tr>
+          <th *ngFor="let thData of ths;" [nzWidth]="thData.width">{{thData.name}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of songTable.data; let i = index" (dblclick)="addMusic(data)">
+          <td class="music-color" [nzAlign]="'right'">{{i+1}}</td>
+          <td class="opt-btn music-color">
+            <span><i nz-icon nzType="heart" nzTheme="outline"></i></span>
+            <span><i nz-icon nzType="download" nzTheme="outline"></i></span>
+          </td>
+          <td nzEllipsis>
+            <span>{{data.name}}</span>
+            <span *ngFor="let item of data.alia">({{item}})</span>
+            <span *ngFor="let item of data.tns">({{item}})</span>
+            <nz-tag *ngIf="data.fee" class="music-sq" nzColor="error">SQ</nz-tag>
+            <span *ngIf="data.mv" class="music-mv">
+              <i nz-icon nzType="play-square" nzTheme="outline"></i>
+            </span>
+          </td>
+          <td nzEllipsis><span *ngFor="let singer of data.ar">{{singer.name}}</span></td>
+          <td nzEllipsis>{{data.al.name}}</td>
+          <td class="music-color">{{data.dt | date: 'mm:ss'}}</td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </nz-spin>
+</div>

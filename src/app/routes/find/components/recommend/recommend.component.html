@@ -1,0 +1,40 @@
+
+<nz-layout class="component-main">
+    <nz-spin [nzSpinning]="loading">
+        <div class="carousel-box">
+            <nz-carousel nzAutoPlay="true" nzAutoPlaySpeed="5000" (nzAfterChange)="carouselChange($event)">
+                <div nz-carousel-content *ngFor="let index of array">
+                    <img [src]="index.imageUrl+'?param=752y300'" alt="">
+                </div>
+            </nz-carousel>
+        </div>
+
+        <article class="title-item" *ngFor="let item of data;let k = index">
+            <p class="title">
+                <span>{{ item.title }}</span>
+                <a class="more" (click)="changeTabIndex(item.tabIndex)">更多></a>
+            </p>
+            <section class="card-box" *ngIf="item.code == 'tjgd'">
+                <nz-card>
+                    <div class="card-body-box">
+                        <div class="every-day">
+                            <h3>today</h3>
+                            <div>2</div>
+                        </div>
+                        <span class="card-text">每日歌曲推荐</span>
+                    </div>
+                </nz-card>
+                <nz-card *ngFor="let card of item.children; let j = index">
+                    <div class="card-body-box" (click)="goSongsDetail(card.id)">
+                        <p class="listen-people">
+                            <i nz-icon nzType="customer-service" nzTheme="outline"></i>
+                            <span>{{card.playCount}}</span>
+                        </p>
+                        <img alt="example" [src]="card.picUrl+ '?param=160y160'" />
+                        <span class="card-text">{{card.name}}</span>
+                    </div>
+                </nz-card>
+            </section>
+        </article>
+    </nz-spin>
+</nz-layout>
