@@ -24,7 +24,6 @@ export class SongListComponent implements OnInit {
   //添加歌曲到播放列表
   addMusic(music: SongModel){
     console.log('歌单内添加歌曲');
-    console.log(music);
     this.audioSer.addToPlay(music);
   }
   //获取歌单内歌曲详情

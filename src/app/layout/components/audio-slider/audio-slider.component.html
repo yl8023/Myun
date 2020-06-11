@@ -1,5 +1,13 @@
 <div nz-row class="slider-box">
     <span class="audio-time" nz-col nzFlex="45px">{{currentTime | date: 'mm:ss'}}</span>
-    <nz-slider class="audio-slider" [nzTooltipVisible]="'never'" nz-col nzFlex="auto" [nzMax]="duration" [(ngModel)]="currentTime"></nz-slider>
+    <nz-slider 
+        class="audio-slider" 
+        [nzTooltipVisible]="'never'" 
+        nz-col nzFlex="auto" 
+        [nzMax]="duration" 
+        [(ngModel)]="currentTime"
+        (ngModelChange)="sliderChange($event)"
+        >
+    </nz-slider>
     <span class="audio-time" nz-col nzFlex="45px">{{duration | date: 'mm:ss'}}</span>
 </div>

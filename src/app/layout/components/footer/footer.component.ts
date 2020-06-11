@@ -23,7 +23,8 @@ export class FooterComponent implements OnInit {
   musicPlayLength: number;
   nowMusic: SongModel;
   footerPlayModel: number;
-  childIcon: boolean = false;
+  palyIcon: boolean = false;
+  audioVolume: any;
   audioCurrentTime: number = 0;
   audioDuration: number = 160;
   Operations = { //music操作
@@ -55,11 +56,20 @@ export class FooterComponent implements OnInit {
   getTime(): void {
     this.audioDuration = Math.round(this.audioElement.nativeElement.duration*1000);
   }
+  //接收进度条变化
+  receiveMusicSlider(val: any): void{
+    this.audioElement.nativeElement.currentTime = val/1000;
+  }
+  //接收音量大小的改变
+  receiveMusicVolume(val: any): void{
+    this.audioElement.nativeElement.volume = val/100;
+  }
+  //更改播放模式
   changeModel(model: any): void{
     this.footerPlayModel = model;
   }
+  //取得当前应播放歌曲
   nowMusicPlay(music) {
-    console.log(music);
     this.nowMusic = music;
     this.getMusicUrl(music.id);
   }
@@ -78,10 +88,12 @@ export class FooterComponent implements OnInit {
   loadAudio(): void{
     this.audioElement.nativeElement.load();
     this.Operations['play']();
-    this.childIcon = !this.childIcon;
-    setTimeout(()=>{this.childIcon = true}) ;
+    this.audioVolume = this.audioElement.nativeElement.volume * 100;
+    this.palyIcon = !this.palyIcon;
+    setTimeout(()=>{this.palyIcon = true}) ;
     console.log('music加载完成');
   }
+  //获取歌曲播放的url
   getMusicUrl(id): void{
     this.http.get(pathUrl['songUrl'],{id}).subscribe(res => {
       if( res.code == 200) {

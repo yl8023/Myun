@@ -22,14 +22,14 @@
 </div>
 <div nz-row>
   <div nz-col nzFlex="180px">
-    <app-audio-btn [startTogg]="childIcon" (musicEvent)="getMusicOperation($event)"></app-audio-btn>
+    <app-audio-btn [startTogg]="palyIcon" (musicEvent)="getMusicOperation($event)"></app-audio-btn>
   </div>
   <div nz-col nzFlex="auto">
-    <app-audio-slider *ngIf="audioElement" [currentTime]="audioCurrentTime" [duration]="audioDuration"></app-audio-slider>
+    <app-audio-slider [currentTime]="audioCurrentTime" [duration]="audioDuration" (sendMusicSlider)="receiveMusicSlider($event)"></app-audio-slider>
   </div>
   <div nz-col nzFlex="340px" nz-row class="right-footer-box">
     <div nz-col nzFlex="120px">
-      <app-audio-volume></app-audio-volume>
+      <app-audio-volume [volumeValue]="audioVolume" (sendMusicVolume)="receiveMusicVolume($event)"></app-audio-volume>
     </div>
     <app-play-mode (playModel)="changeModel($event)"></app-play-mode>
 

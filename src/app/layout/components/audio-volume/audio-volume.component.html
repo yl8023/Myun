@@ -1,4 +1,4 @@
 <div class="audio-volume" nz-row>
     <i class="volume-icon" nz-icon nzType="filter" nz-col nzFlex="20px" nzTheme="outline" nzRotate="90"></i>
-    <nz-slider class="volume-slider" nz-col nzFlex="auto" [(ngModel)]="volumeValue"></nz-slider>
+    <nz-slider class="volume-slider" nz-col [nzMin]="1" [nzMax]="100" nzFlex="auto" [(ngModel)]="volumeValue" (ngModelChange)="changeVolume($event)"></nz-slider>
 </div>

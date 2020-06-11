@@ -28,7 +28,7 @@
                     <div class="card-body-box" (click)="goSongsDetail(card.id)">
                         <p class="listen-people">
                             <i nz-icon nzType="customer-service" nzTheme="outline"></i>
-                            <span>{{card.playCount}}</span>
+                            <span>{{card.playCount | playCount}}</span>
                         </p>
                         <img alt="example" [src]="card.picUrl+ '?param=160y160'" />
                         <span class="card-text">{{card.name}}</span>

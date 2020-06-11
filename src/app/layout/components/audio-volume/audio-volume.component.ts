@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-audio-volume',
@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./audio-volume.component.less']
 })
 export class AudioVolumeComponent implements OnInit {
-  volumeValue = 80;
+  @Input() volumeValue: number;
+  @Output() sendMusicVolume = new EventEmitter<any>();
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  //改音量大小
+  changeVolume(val: any): void{
+    this.sendMusicVolume.emit(val);
+  }
+  
 }
