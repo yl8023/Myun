@@ -12,8 +12,8 @@ import { SongModel} from '../../../base/common';
 export class PlayListComponent implements OnInit {
   @Input() listPlayModel: number = 0; //播放模式
   @Output() musicPlay = new EventEmitter<any>(); //通知当前歌曲
-  @Output() musicLength = new EventEmitter<any>(); //通知播放列表数量
   playIndex:any = 0;//当前播放歌曲index
+  opts = {'next': 1,'previous': -1};
   toggerDropdown: boolean = true;
   data:SongModel[] = [];
   tableLoading: boolean = false; 
@@ -34,13 +34,24 @@ export class PlayListComponent implements OnInit {
         this.sendMusicIndex(message.music);
       }
       console.log(this.data);
-      this.sendLength();
-
     });
 
     this.messageChangeMusic = this.audioService.getChangeIndex().subscribe(message => {
-      this.playIndex = message.index;
-      this.sendMusicIndex(this.data[this.playIndex]);
+      console.log(message.code);
+      switch(message.code){
+        case 'next': //手动执行下一首的动作
+          this.beforeNextMusic();
+          this.sendMusicIndex(this.data[this.playIndex]);
+          break;
+        case 'auto': //自动执行下一首的动作
+          this.beforeAutoNextMusic();
+          break; // 不要忘记写break！！！
+        case 'previous': //点击上一首的动作
+          this.playIndex == 0 ? this.playIndex = this.data.length - 1 : this.playIndex-=1; 
+          this.sendMusicIndex(this.data[this.playIndex]);
+          break;
+      }
+      
     })
   }
 
@@ -51,6 +62,44 @@ export class PlayListComponent implements OnInit {
     this.toggerDropdown = val;
   }
 
+  //自动播放下一首时
+  beforeAutoNextMusic(): void{
+    switch(this.listPlayModel){
+      case 0: // 0: '顺序播放',
+        console.log('顺序播放');
+        if(this.playIndex === this.data.length-1){
+          console.log('播放完了');
+        };
+        break;
+      case 2: // 2: '单曲循环',
+        this.sendMusicIndex(this.data[this.playIndex]);
+        break;
+      case 3: // 3: '随机播放'
+        this.randomPlay();
+        this.sendMusicIndex(this.data[this.playIndex]);
+        break;
+      default:  // 1: '列表循环',
+        this.playIndex < this.data.length - 1 ? this.playIndex+=1 : this.playIndex = 0 ;
+        this.sendMusicIndex(this.data[this.playIndex]);
+    }
+  }
+  //手动播放下一首时
+  beforeNextMusic(): void{
+    switch(this.listPlayModel){
+      case 3: // 3: '随机播放'
+        this.randomPlay();
+        break;
+      default:
+        this.playIndex < this.data.length - 1 ? this.playIndex+=1 : this.playIndex = 0 ;
+    }
+  }
+  //随机播放
+  randomPlay(): void {
+    const Mindex = this.playIndex;
+    while(this.playIndex === Mindex){
+      this.playIndex = Math.ceil(Math.random() * this.data.length) - 1; 
+    }
+  }
   //播放列表中添加歌单时默认播放的歌 index
   checkMusic(){
     console.log('播放模式'+this.listPlayModel);
@@ -62,12 +111,9 @@ export class PlayListComponent implements OnInit {
     this.sendMusicIndex(this.data[this.playIndex]);
   }
 
-  //通知父组件当前播放列表的长度
-  sendLength(): void {
-    this.musicLength.emit(this.data.length);
-  }
   //通知父组件当前歌曲
   sendMusicIndex(music: SongModel): void {
+    console.log('求求你不要播了!!!!');
     this.musicPlay.emit(music);
   }
 }

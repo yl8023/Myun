@@ -36,11 +36,11 @@
     <div nz-col nzFlex="108px">
     </div>
     <div nz-col nzFlex="56px">
-      <app-play-list [listPlayModel]="footerPlayModel" (musicLength)="getMusicLength($event)" (musicPlay)="nowMusicPlay($event)"></app-play-list>
+      <app-play-list [listPlayModel]="footerPlayModel" (musicPlay)="nowMusicPlay($event)"></app-play-list>
     </div>
   </div>
 </div>
-<audio #audioElm (timeupdate)="musicSlider()">
+<audio #audioElm (timeupdate)="musicSlider()" (ended)="endMusic()">
   <source [src]="musicUrl" type="audio/mpeg">
 </audio>
 

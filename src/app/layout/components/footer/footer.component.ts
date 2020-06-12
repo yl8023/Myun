@@ -19,8 +19,6 @@ export class FooterComponent implements OnInit {
   @ViewChild('audioElm') audioElement;
   musicUrl: string;
   playList = [];
-  musicIndex: any = 0;
-  musicPlayLength: number;
   nowMusic: SongModel;
   footerPlayModel: number;
   palyIcon: boolean = false;
@@ -36,12 +34,13 @@ export class FooterComponent implements OnInit {
       console.log('准备播放');
     },
     'next': () => {
-      this.musicIndex < this.musicPlayLength - 1 ? this.musicIndex+=1 : this.musicIndex = 0 ;
-      this.audioService.changeIndex(this.musicIndex);
+      this.audioService.changeIndex('next');
     },
     'previous': () => {
-      this.musicIndex == 0 ? this.musicIndex = this.musicPlayLength - 1 : this.musicIndex-=1 ;
-      this.audioService.changeIndex(this.musicIndex);
+      this.audioService.changeIndex('previous');
+    },
+    'auto': () => {
+      this.audioService.changeIndex('auto');
     }
   }
   ngOnInit(): void {
@@ -74,16 +73,18 @@ export class FooterComponent implements OnInit {
     this.getMusicUrl(music.id);
   }
 
-  //获取播放列表的数量
-  getMusicLength(len: number): void {
-    this.musicPlayLength = len;
-  }
   //播放操作
   getMusicOperation(operation: any): void {
     console.log(operation);
     this.Operations[operation.code]();
   }
-  
+  //播放结束后触发
+  endMusic(): void{
+    this.palyIcon = false;
+    // if(this.endStatus === 0){
+      this.Operations['auto']();
+    // }
+  }
   //加载音频//播放音乐并改变子组件的按钮图标
   loadAudio(): void{
     this.audioElement.nativeElement.load();

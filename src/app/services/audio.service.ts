@@ -33,9 +33,9 @@ export class AudioService {
   }
   
   //发送下一首/上一首的消息
-  changeIndex(index): void{
+  changeIndex(code: any): void{
     this.changeMusicSubject.next({
-      index
+      code
     });
   }
 
