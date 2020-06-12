@@ -4,7 +4,7 @@
         <div class="carousel-box">
             <nz-carousel nzAutoPlay="true" nzAutoPlaySpeed="5000" (nzAfterChange)="carouselChange($event)">
                 <div nz-carousel-content *ngFor="let index of array">
-                    <img [src]="index.imageUrl+'?param=752y300'" alt="">
+                    <img [src]="index.imageUrl+'?param=768y300'" alt="">
                 </div>
             </nz-carousel>
         </div>
@@ -18,8 +18,8 @@
                 <nz-card>
                     <div class="card-body-box">
                         <div class="every-day">
-                            <h3>today</h3>
-                            <div>2</div>
+                            <h3>星期{{week[weekDay]}}</h3>
+                            <div>{{date}}</div>
                         </div>
                         <span class="card-text">每日歌曲推荐</span>
                     </div>
@@ -30,7 +30,7 @@
                             <i nz-icon nzType="customer-service" nzTheme="outline"></i>
                             <span>{{card.playCount | playCount}}</span>
                         </p>
-                        <img alt="example" [src]="card.picUrl+ '?param=160y160'" />
+                        <img alt="example" [src]="card.picUrl+ '?param=140y140'" />
                         <span class="card-text">{{card.name}}</span>
                     </div>
                 </nz-card>

@@ -2,7 +2,6 @@ import { Component, OnInit, AfterViewInit, EventEmitter, Input, Output} from '@a
 import { Router } from '@angular/router';
 import { HttpService } from '../../../../shared/http/http.service';
 import { pathUrl } from '../../../../shared/http/path';
-import { AudioService } from '../../../../services/audio.service';
 
 @Component({
   selector: 'app-recommend',
@@ -12,10 +11,12 @@ import { AudioService } from '../../../../services/audio.service';
 export class RecommendComponent implements OnInit, AfterViewInit {
   @Input() findIndex : number;
   @Output() linkTabIndex = new EventEmitter<any>();
+  date = new Date().getDate();
+  weekDay = new Date().getDay();
+  week = ['日','一','二','三','四','五','六'];
   loading: boolean = true;
   constructor(
     private http: HttpService, 
-    private audioService: AudioService, 
     private router: Router) { }
   
   changeTabIndex(index: number) {

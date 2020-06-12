@@ -1,6 +1,6 @@
 ::ng-deep{
     .ant-card-body{
-        padding: 0 16px;
+        padding: 0 8px;
         height: 100%;
     }
     .ant-typography-expand.ng-star-inserted{
@@ -43,20 +43,27 @@ nz-layout{
         .card-box{
             display: flex;
             flex-flow: row wrap;
+            max-width: 1080px;
+            margin: 12px auto 0;
             .card-body-box{
                 height: 100%;
                 position: relative;
                 .card-text{
-                    display: block;
                     text-align: left;
-                    padding:6px 0;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 2;
+                    overflow: hidden;
                 }
             }
         }
         nz-card{
-            min-width: 172px;
+            min-width: 153px;
+            max-width: 216px;
+            width: 13.6vw;
+            height: 13.6vw;
             min-height: 140px;
-            max-height: 180px;
+            max-height: 200px;
             text-align: center;
             border-color: #fafafa;
             background-color: #fafafa;
@@ -66,8 +73,12 @@ nz-layout{
                 text-align: center;
                 border:1px solid #e5e5e5;
                 background-color: #fff;
+                h3{
+                    padding-top: 12px;
+                    color: #666;
+                }
                 div{
-                    font-size: 70px;
+                    font-size: 80px;
                     color: #c62f2f;
                     line-height: 60px;
                 }
