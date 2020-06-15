@@ -2,22 +2,28 @@ import { trigger, transition, animate, style, query, animateChild, group, state 
 export const toMusicInfoAnimation =
   trigger('musicAnimation', [
     state('open', style({
+      width: '100%',
+      height: 'calc(100% - 114px)',
       opacity: 1,
-      display: 'block',
-      zIndex: 100,
+      top: '64px',
+      zIndex: 10,
+      left: 0,
+      
+      
     })),
     state('closed', style({
-      height: '64px',
       width: '200px',
-      opacity: 0,
+      height: '64px',
+      opacity: 0.3,
       top: '90%',
-      zIndex: -100,
+      zIndex: -5,
+      left: 0,
       
     })),
     transition('* => closed', [
-      animate('300ms linear')
+      animate('500ms ease')
     ]),
     transition('* => open', [
-      animate('300ms linear')
+      animate('500ms ease')
     ]),
   ]);

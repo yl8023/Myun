@@ -1,7 +1,45 @@
 <nz-layout [@musicAnimation]="animateStatus?'open':'closed'" class="music-info-box">
-<h1>12312321</h1>
-<h2>1231232131</h2>
-<h3>1231231233123</h3>
-<h4>12312321321321</h4>
-<button nz-button (click)="closeInfo()">back</button>
+    <nz-content #MusicBG class="music-content" [ngClass]="{'animation-close':animateStatus}">
+        <div class="box">
+            <div class="music-animation">
+                <div class="circular out">
+                    <div class="circular medium">
+                        <div class="circular inner">
+                            <img [src]="music.al?.picUrl+'?param=190y190'" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons-box">
+                <button nz-button nzSize="small" *ngFor="let btn of buttons">
+                    <i nz-icon [nzType]="btn.icon" nzTheme="outline"></i>
+                    <span>{{btn.text}}</span>
+                </button>
+            </div>
+        </div>
+        <div class="box">
+            <p class="music-name">{{music.name}}</p>
+            <p class="music-info" nz-row [nzGutter]="8">
+                <span class="text-flow" nz-col nzSpan="8">专辑：<a href="" [nzTooltipTitle]="music.al?.name" nz-tooltip>{{music.al?.name}}</a></span>
+                <span class="text-flow" nz-col nzSpan="8">歌手：
+                    <span *ngFor="let singer of music.ar; let i = index">
+                        <a href="" [nzTooltipTitle]="singer.name"  nz-tooltip>{{singer.name}}</a>
+                        <span *ngIf="i < music.ar.length - 1">/</span>
+                    </span>
+                </span>
+                <span class="text-flow" nz-col nzSpan="8">来源：</span>
+                <a href="" ></a>
+            </p>
+            <div class="lyric-box layout-scrollbar">
+                <div [innerHtml]="musicLyric?.lyric"></div>
+            </div>
+        </div>
+        <button class="close-btn" nz-button nzDanger (click)="closeInfo()">
+            <i nz-icon nzType="shrink" nzTheme="outline"></i>
+        </button>
+    </nz-content>
+    <nz-content class="music-content">
+
+    </nz-content>
+    
 </nz-layout>

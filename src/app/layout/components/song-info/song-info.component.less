@@ -1,8 +1,71 @@
 .music-info-box{
     position: fixed;
-    left: 0;
-    top: 64px;
-    width: 100%;
-    height: calc(100% - 114px);
     background-color: #fafafa;
+    display: block;
+    .animation-close{
+        width: 0px;
+        height: 0px;
+    }
+    .music-content{
+        animation: all 0.5s;
+        width: 760px;
+        margin: 30px auto 0;
+        display: flex;
+        flex-flow: row wrap;
+        position: relative;
+        .close-btn{
+            width: 52px;
+            position: absolute;
+            right: -70px;
+            top: 0;
+            i{
+                font-size: 24px;
+            }
+        }
+        .box{
+            width: 50%;
+            .music-animation{
+                margin: 25px auto 40px;
+                .circular{
+                    width: 300px;
+                    height: 300px;
+                    border-radius: 50%;
+                }
+                .out{
+                    border:6px solid #8d8c8b;
+                }
+                .medium{
+                    width: 288px;
+                    height: 288px;
+                    border:40px solid #373739;
+                }
+                .inner{
+                    width: 208px;
+                    height: 208px;
+                    border:8px solid #222221;
+                    overflow: hidden;
+                    img{
+                        width: 194px;
+                        height: 194px;
+                    }
+                }
+            }
+            .buttons-box{
+                display: flex;
+                justify-content: space-around;
+            }
+            .music-name{
+                font-size: 24px;
+                color: #2b2a2a;
+            }
+            .music-info{
+                margin:8px 0;
+                font-size: 12px;
+            }
+            .lyric-box{
+                height: 320px;
+                overflow-y: scroll;
+            }
+        }
+    }
 }

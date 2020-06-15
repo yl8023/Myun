@@ -21,7 +21,7 @@
     </div>
   </div>
 </div>
-<app-song-info></app-song-info>
+<app-song-info [music]="nowMusic? nowMusic:{}"></app-song-info>
 <audio #audioElm (timeupdate)="musicSlider()" (ended)="endMusic()">
   <source [src]="musicUrl" type="audio/mpeg">
 </audio>

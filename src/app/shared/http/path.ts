@@ -7,4 +7,5 @@ export const pathUrl = {
     'songDetail': environment.url + '/song/detail',
     'commentPlaylist': environment.url + '/comment/playlist',
     'songUrl': environment.url + '/song/url',
+    'lyric': environment.url + '/lyric',
 }
