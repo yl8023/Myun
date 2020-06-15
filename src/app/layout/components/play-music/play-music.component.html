@@ -1,0 +1,21 @@
+<div class="playing-box" nz-row (click)="musicDetail()">
+    <div nz-col nzFlex="54px">
+        <img [src]="imgSrc+'?param=53y53'">
+    </div>
+    <div nz-col nzFlex="136px" class="m-detail">
+        <div nz-row>
+            <p nz-col nzFlex="113px" class="play-name">{{musicName}}</p>
+            <p nz-col nzFlex="22px" class="play-icon">
+                <i nz-icon nzType="heart" nzTheme="outline" nz-col nzFlex="22px"></i>
+            </p>
+        </div>
+        <div nz-row>
+            <p nz-col nzFlex="113px" class="player">
+                <span *ngFor="let item of singer">{{item.name}}</span>
+            </p>
+            <p nz-col nzFlex="22px" class="play-icon">
+                <i nz-icon nzType="share-alt" nzTheme="outline"></i>
+            </p>
+        </div>
+    </div>
+</div>

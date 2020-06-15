@@ -19,7 +19,8 @@ import { SongsDetailComponent } from '../songs-detail/songs-detail.component';
     RecommendComponent, 
     SongsComponent, 
     TabsSelectComponent,
-    SongsDetailComponent],
+    SongsDetailComponent,
+  ],
   imports: [
     CommonModule,
     FindRoutingModule,

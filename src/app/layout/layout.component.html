@@ -42,7 +42,7 @@
       <ngx-loading-bar [includeSpinner]="false" [color]="'#555'" [fixed]="false" height="4px"></ngx-loading-bar>
       <nz-layout class="inner-layout">
         <nz-content>
-          <router-outlet></router-outlet>
+          <router-outlet #outlet="outlet"></router-outlet>
         </nz-content>
       </nz-layout>
     </nz-layout>

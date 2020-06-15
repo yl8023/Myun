@@ -19,7 +19,7 @@ const MODULES = [
   NgZorroAntdModule,
   LoadingBarRouterModule,
   LoadingBarModule,
-  FormsModule
+  FormsModule,
 ];
 
 const COMPONENTS = [

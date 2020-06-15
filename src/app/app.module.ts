@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { SharedModule } from './shared/shared.module';
 
 import { AppRoutingModule } from './app-routing.module';
 // import { NgZorroAntdModule } from 'ng-zorro-antd';
@@ -13,6 +14,7 @@ import { MyCollectionComponent } from './routes/my-collection/my-collection.comp
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +24,8 @@ import { MyCollectionComponent } from './routes/my-collection/my-collection.comp
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

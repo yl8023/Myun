@@ -14,9 +14,10 @@ export class FooterComponent implements OnInit {
   constructor(
     private iconService: NzIconService,
     private http: HttpService,
-    private audioService: AudioService
+    private audioService: AudioService,
     ) { }
   @ViewChild('audioElm') audioElement;
+  // musicInfo: boolean = false;
   musicUrl: string;
   playList = [];
   nowMusic: SongModel;

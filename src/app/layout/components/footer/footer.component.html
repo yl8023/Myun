@@ -1,24 +1,5 @@
-<div class="playing-box" nz-row>
-  <div nz-col nzFlex="54px">
-    <img *ngIf="nowMusic" [src]="nowMusic.al.picUrl+'?param=53y53'">
-    <img *ngIf="!nowMusic" src="../../../../assets/images/music-init.png">
-  </div>
-  <div nz-col nzFlex="136px" class="m-detail">
-    <div nz-row>
-      <p *ngIf="nowMusic" nz-col nzFlex="113px" class="play-name">{{nowMusic.name}}</p>
-      <p *ngIf="!nowMusic" nz-col nzFlex="113px" class="play-name">雷仔云</p>
-      <p nz-col nzFlex="22px" class="play-icon">
-        <i nz-icon nzType="heart" nzTheme="outline" nz-col nzFlex="22px"></i>
-      </p>
-    </div>
-    <div nz-row>
-      <p *ngIf="nowMusic" nz-col nzFlex="113px" class="player"><span *ngFor="let singer of nowMusic.ar">{{singer.name}}</span></p>
-      <p *ngIf="!nowMusic" nz-col nzFlex="113px" class="player">音乐</p>
-      <p nz-col nzFlex="22px" class="play-icon">
-        <i nz-icon nzType="share-alt" nzTheme="outline"></i>
-      </p>
-    </div>
-  </div>
+<div *ngIf="nowMusic">
+  <app-play-music [imgSrc]="nowMusic.al.picUrl" [musicName]="nowMusic.name" [singer]="nowMusic.ar"></app-play-music>
 </div>
 <div nz-row>
   <div nz-col nzFlex="180px">
@@ -40,6 +21,7 @@
     </div>
   </div>
 </div>
+<app-song-info></app-song-info>
 <audio #audioElm (timeupdate)="musicSlider()" (ended)="endMusic()">
   <source [src]="musicUrl" type="audio/mpeg">
 </audio>

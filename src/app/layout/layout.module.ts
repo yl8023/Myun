@@ -10,6 +10,8 @@ import { AudioSliderComponent } from './components/audio-slider/audio-slider.com
 import { AudioVolumeComponent } from './components/audio-volume/audio-volume.component';
 import { PlayModeComponent } from './components/play-mode/play-mode.component';
 import { PlayListComponent } from './components/play-list/play-list.component';
+import { PlayMusicComponent } from './components/play-music/play-music.component';
+import { SongInfoComponent } from './components/song-info/song-info.component';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { PlayListComponent } from './components/play-list/play-list.component';
     AudioSliderComponent,
     AudioVolumeComponent,
     PlayModeComponent,
-    PlayListComponent
+    PlayListComponent,
+    PlayMusicComponent,
+    SongInfoComponent
   ],
   imports: [
     CommonModule,
