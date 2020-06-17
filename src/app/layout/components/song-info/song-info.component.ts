@@ -31,10 +31,6 @@ export class SongInfoComponent implements OnInit {
     this.watchStatus = this.musicInfoSer.getStatus().subscribe(msg =>{
       //接收是否打开歌曲详情boolean 并赋值
       this.animateStatus = msg.isShow;
-      if(this.animateStatus) {
-        this.getLyric(this.music.id);
-      }
-      // this.setBackground();
     })
   }
 
@@ -49,12 +45,6 @@ export class SongInfoComponent implements OnInit {
     this.musicBackground.nativeElement.style.background = `url(${this.music.al?.picUrl}+?param=280y280) no-repeat 100%`
   }
 
-  getLyric(id): void{
-    this.http.get(pathUrl['lyric'],{ id }).subscribe(res => {
-      if(res.code == 200){
-        this.musicLyric = res.lrc;
-      }
-    });
-  }
+  
 
 }

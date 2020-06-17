@@ -29,10 +29,11 @@ export class FooterComponent implements OnInit {
   Operations = { //music操作
     'stop': () => {
       this.audioElement.nativeElement.pause();
+      this.audioService.sendOpTolyric('stop');
     },
     'play': () => {
       this.audioElement.nativeElement.play();
-      console.log('准备播放');
+      this.audioService.sendOpTolyric('play');
     },
     'next': () => {
       this.audioService.changeIndex('next');
@@ -49,7 +50,9 @@ export class FooterComponent implements OnInit {
   }
   //music进度条
   musicSlider(): void{
-    this.audioCurrentTime = Math.round(this.audioElement.nativeElement.currentTime*1000);
+    const currentTime = this.audioElement.nativeElement.currentTime;
+    this.audioCurrentTime = Math.round(currentTime*1000);
+    this.audioService.sendToAudioDuration(currentTime);
     this.getTime();
   }
   //获取一次当前music时长

@@ -1,0 +1,11 @@
+<ng-template #indicatorTemplate><i nz-icon nzType="loading"></i></ng-template>
+<nz-spin [nzIndicator]="indicatorTemplate" [nzSpinning]="loading">
+    <div class="lyric-box layout-scrollbar" id="lyricBox" (scroll)="onScrollFn($event)">
+        <ul>
+            <li class="lyric-item" [ngClass]="{'now': item.nowShow}" *ngFor="let item of musicLyric; index as idx">
+                <p>{{item.str1}}</p>
+                <p>{{item.str2}}</p>
+            </li>
+        </ul>
+    </div>
+</nz-spin>
