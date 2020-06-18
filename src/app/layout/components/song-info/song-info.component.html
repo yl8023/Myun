@@ -1,4 +1,4 @@
-<nz-layout [@musicAnimation]="animateStatus?'open':'closed'" class="music-info-box">
+<nz-layout [@musicAnimation]="animateStatus?'open':'closed'" class="music-info-box layout-scrollbar">
     <nz-content #MusicBG class="content-box" [ngClass]="{'animation-close': !animateStatus}">
         <div class="music-content">
             <div class="box">
@@ -42,8 +42,15 @@
        
         
     </nz-content>
-    <nz-content class="music-content">
+    <nz-content class="content-box">
+        <div class="music-content">
+            <div class="coment-box" *ngIf="animateStatus">
+                <app-comment [musicId]="music?.id"></app-comment>
+            </div>
+            <div class="recommend-box">
 
+            </div>
+        </div>
     </nz-content>
     
 </nz-layout>

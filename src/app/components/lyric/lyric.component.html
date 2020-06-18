@@ -1,11 +1,33 @@
 <ng-template #indicatorTemplate><i nz-icon nzType="loading"></i></ng-template>
 <nz-spin [nzIndicator]="indicatorTemplate" [nzSpinning]="loading">
     <div class="lyric-box layout-scrollbar" id="lyricBox" (scroll)="onScrollFn($event)">
-        <ul>
+        <ul *ngIf="!nolyric">
             <li class="lyric-item" [ngClass]="{'now': item.nowShow}" *ngFor="let item of musicLyric; index as idx">
-                <p>{{item.str1}}</p>
-                <p>{{item.str2}}</p>
+                <p>{{item.lyc_str}}</p>
+                <p>{{item.lyc_str2}}</p>
+            </li>
+            <li class="lyric-item" *ngIf="!qgc && lyricUser">
+                <p >
+                    <span>歌词贡献者：</span>
+                    <u>{{lyricUser?.nickname}}</u>
+                </p>
+            </li>
+            <li class="lyric-item" *ngIf="!qgc">
+                <p *ngIf="!qfy">
+                    <span>翻译贡献者：</span>
+                    <u>{{transUser?.nickname}}</u>
+                </p>
+                <p *ngIf="qfy">
+                    <u>求翻译</u>
+                </p>
             </li>
         </ul>
+        <p class="nolyric" *ngIf="nolyric">
+            纯音乐，请您欣赏。
+        </p>
+        <p class="nolyric" *ngIf="qgc">
+            <span>还没有歌词噢</span>
+            <u>求歌词</u> 
+        </p>
     </div>
 </nz-spin>

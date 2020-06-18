@@ -17,6 +17,11 @@ export class LyricComponent implements OnInit,AfterViewChecked {
   private opStopOrPlay = new Subscription();
   nowShow: boolean = false;
   loading: boolean = true;
+  nolyric: boolean = false; //无歌词，纯音乐
+  qfy: boolean = false; //求翻译
+  qgc: boolean = false; // 求歌词
+  lyricUser: any; //歌词贡献者
+  transUser: any; //翻译贡献者
   lyricItemId: any;
   musicLyric: any;
   constructor(
@@ -27,7 +32,7 @@ export class LyricComponent implements OnInit,AfterViewChecked {
   ) {
     this.audioDuration = this.audioService.sendAudioDuration().subscribe(msg => {
       this.musicCurrentTime = msg.time;
-      if(!this.loading) {
+      if(this.canScrollLyric()) {
         this.setLyricTime();
       }
     });
@@ -51,7 +56,11 @@ export class LyricComponent implements OnInit,AfterViewChecked {
   onScrollFn(e): void {
     // console.log(e);
   }
-
+  //能否执行歌词滚动
+  canScrollLyric(): boolean {
+    const canDo = !this.loading && !this.nolyric && !this.qgc;
+    return canDo
+  }
   //计算滚动条
   setScrollTop(): void {
     
@@ -71,6 +80,7 @@ export class LyricComponent implements OnInit,AfterViewChecked {
             clearTimeout(scrollInterval);
           }
         },50)
+        // lyricBox.scrollTop = difference;
       }
     }
     
@@ -93,19 +103,18 @@ export class LyricComponent implements OnInit,AfterViewChecked {
       }
     });
   }
-  mergeLyric(lyric1: Array<any>, lyric2: Array<any>){
-    let lyricArry = [];
-    lyric1.forEach((val, index) => {
-      if(val.time == lyric2[index].time){
-        const obj = {
-          str1: val.lyc_str,
-          str2: lyric2[index].lyc_str,
-          time: val.time
+  mergeLyric(lyric1: Array<any>, lyric2?: Array<any>){
+    lyric1.forEach((val, idx) => {
+      val.lyc_str2 = '';
+      if (lyric2){
+        for(const key of lyric2){
+          if(val.time == key.time){
+            lyric1[idx].lyc_str2 = key.lyc_str;
+          }
         }
-        lyricArry.push(obj);
       }
     })
-    this.musicLyric = lyricArry;
+    this.musicLyric = lyric1;
   }
   resolvLyric(lyric: any): Array<any>{
     const { lyric: lyricStr} = lyric;
@@ -139,10 +148,31 @@ export class LyricComponent implements OnInit,AfterViewChecked {
   getLyric(id): void{
     this.http.get(pathUrl['lyric'],{ id }).subscribe(res => {
       if(res.code == 200){
-        const { lrc, tlyric } = res;
-        this.mergeLyric( this.resolvLyric(lrc), this.resolvLyric(tlyric) );
-        this.loading = false;
-      }
-    });
+          const { nolyric, uncollected, lrc, tlyric, lyricUser, transUser } = res;
+          if (nolyric) {
+            this.nolyric = nolyric;
+            return 
+          }
+          if(uncollected){
+            this.qgc = uncollected;
+            return 
+          }
+          this.lyricUser = lyricUser;
+          this.transUser = transUser;
+          if(tlyric.version > 0){
+            this.mergeLyric( this.resolvLyric(lrc), this.resolvLyric(tlyric) );
+          }else if(tlyric.version == 0) {
+            this.mergeLyric( this.resolvLyric(lrc) );
+            this.qfy = true;
+          }
+        }
+    },
+    error => {
+
+    },
+    () => {
+      this.loading = false;
+    }
+    );
   }
 }
