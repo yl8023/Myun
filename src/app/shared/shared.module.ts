@@ -11,6 +11,7 @@ import { SongListComponent } from '../components/song-list/song-list.component';
 import { CommentComponent } from '../components/comment/comment.component';
 import { ToolsComponent } from '../components/tools-component/tools.component';
 import { LyricComponent } from '../components/lyric/lyric.component';
+import { TabsSelectComponent } from '../components/tabs-select/tabs-select.component';
 
 import { PlayCountPipe } from '../pipes/play-count.pipe';
 import { ListPipePipe } from '../pipes/list-pipe.pipe';
@@ -28,6 +29,7 @@ const COMPONENTS = [
   CommentComponent,
   ToolsComponent,
   LyricComponent,
+  TabsSelectComponent,
 ];
 
 const DIRECTIVES = [];

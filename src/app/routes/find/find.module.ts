@@ -9,7 +9,6 @@ import { NZ_CAROUSEL_CUSTOM_STRATEGIES } from 'ng-zorro-antd';
 
 import { FlipStrategy } from './components/flip-strategy';
 import { SongsComponent } from './components/songs/songs.component';
-import { TabsSelectComponent } from './components/tabs-select/tabs-select.component';
 import { SongsDetailComponent } from '../songs-detail/songs-detail.component';
 
 
@@ -18,7 +17,6 @@ import { SongsDetailComponent } from '../songs-detail/songs-detail.component';
     FindComponent, 
     RecommendComponent, 
     SongsComponent, 
-    TabsSelectComponent,
     SongsDetailComponent,
   ],
   imports: [
