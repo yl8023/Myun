@@ -1,19 +1,25 @@
-<button nz-button nzSize="small" nz-popover nzPopoverTitle="添加标签" [nzPopoverContent]="contentTemplate"
-    nzPopoverTrigger="click" nzPopoverPlacement="bottomLeft" [nzOverlayStyle]="{'width': '514px'}" nzDanger>
-    {{buttonText}}
+<button nz-button nzSize="small" 
+    nz-popover nzPopoverTitle="添加标签" 
+    [nzPopoverContent]="contentTemplate"
+    nzPopoverTrigger="click" 
+    nzPopoverPlacement="bottomLeft" 
+    [nzOverlayStyle]="{'width': '514px'}"
+    [nzLoading]="btnLoading"
+    nzDanger>
+    {{buttonText?.name}}
     <i nz-icon nzType="down"></i>
 </button>
 <ng-template #contentTemplate>
     <div class="tabs-box">
         <p class="all-tab" (click)="tabSelected(0)" [ngClass]="tabIndex==0 ? 'tab-select':''">全部歌单</p>
-        <article class="tabs-colume" nz-row *ngFor="let item of data; let i = index">
+        <article class="tabs-colume" nz-row *ngFor="let item of tagList; let i = index">
             <p nz-col nzFlex="80px">
                 <i nz-icon [nzType]="item.icon" nzTheme="outline"></i>
                 <span>{{item.text}}</span>
             </p>
-            <section nz-col nzFlex="400px">
-                <span class="tab-item" [ngClass]="tabIndex[0] == i && tabIndex[1] == j ? 'tab-select':''"
-                    *ngFor="let tab of item.items; let j = index" (click)="tabSelected(i,j)">{{tab}}</span>
+            <section nz-col nzFlex="390px">
+                <span class="tab-item" [ngClass]="{'tab-select':tabIndex[0] == i && tabIndex[1] == j,'hot':tab.hot}"
+                    *ngFor="let tab of item.items; let j = index" (click)="tabSelected(i,j)">{{tab.name}}</span>
             </section>
         </article>
     </div>

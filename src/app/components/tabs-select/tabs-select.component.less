@@ -1,8 +1,32 @@
-.tabs-box{
+::ng-deep{
+    .ant-popover-inner-content{
+        height: 420px;
+        overflow-y: scroll;
+    }
+    .ant-popover-inner-content::-webkit-scrollbar {
+        /*滚动条整体样式*/
+        width : 6px;  /*高宽分别对应横竖滚动条的尺寸*/
+        height: 1px;
+        }
+    .ant-popover-inner-content::-webkit-scrollbar-thumb {
+        /*滚动条里面小方块*/
+        border-radius: 6px;
+        box-shadow   : inset 0 0 5px rgba(0, 0, 0, 0.2);
+        background   : #cfcfd1;
+    }
+    .ant-popover-inner-content::-webkit-scrollbar-track {
+        /*滚动条里面轨道*/
+        box-shadow   : inset 0 0 5px rgba(0, 0, 0, 0.2);
+        border-radius: 6px;
+        background   : #fafafa;
+    }
+}
+.tabs-box{    
     .all-tab{
         text-align: center;
         height: 34px;
         line-height: 34px;
+        margin-bottom: 12px;
         border:1px solid #e1e1e2;
     }
     .all-tab:hover,.tab-item:hover{
@@ -15,18 +39,31 @@
             font-size: 16px;
             line-height: 34px;
             margin: 0;
+            color: #ce4e4e;
             span{
                 padding:0 8px;
             }
         }
         .tab-item{
             display: inline-block;
-            width: 80px;
+            position: relative;
+            width: 78px;
             height: 34px;
             line-height: 34px;
             font-size: 14px;
             text-align: center;
             border:1px solid #e1e1e2;
+        }
+        .tab-item.hot::before {
+            content: 'HOT';
+            position: absolute;
+            font-weight: 800;
+            font-size: 7.2px;
+            line-height: 8px;
+            transform: scale(0.50);
+            right: 0;
+            top: 0;
+            color: #c62f2f;
         }
         .tab-select {
             border-color: #c62f2f;

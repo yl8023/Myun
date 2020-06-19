@@ -1,4 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { HttpService } from '../../shared/http/http.service';
+import { pathUrl } from '../../shared/http/path';
 
 @Component({
   selector: 'app-tabs-select',
@@ -8,61 +10,77 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 export class TabsSelectComponent implements OnInit {
   @Input() tabIndex: any = 0;
   @Output() reload = new EventEmitter<any>();
-  buttonText: any = '全部歌单';
-  constructor() { }
+  @Input() hostTags: Array<any>;
+  btnLoading: boolean = true;
+  buttonText: any;
+  all: any;
+  tagClass: any = ['global', 'appstore-add', 'coffee', 'smile', 'appstore'];
+  tagList: any;
+  constructor(
+    private http: HttpService,
+  ) { }
   tabSelected(tabClass: any, index?: any) {
     if (!index && index != 0) {
       this.tabIndex = tabClass;
     } else {
       this.tabIndex = [tabClass, index];
     }
+    this.setText();
     this.toReload();
   }
 
+  //按钮显示的值
   setText(): void {
     if (this.tabIndex === 0) {
-      this.buttonText = '全部歌单';
+      this.buttonText = this.all;
     } else {
-      this.buttonText = this.data[this.tabIndex[0]].items[this.tabIndex[1]];
+      this.buttonText = this.tagList[this.tabIndex[0]].items[this.tabIndex[1]];
     }
   }
   //重新渲染组件
   toReload(): void {
     this.reload.emit({
       re: false,
+      select: this.buttonText.name,
       selectIndex: this.tabIndex
     });
   }
   ngOnInit(): void {
-    this.setText();
+    this.getCatList();
   }
-
-  data = [
-    {
-      text: '语种',
-      icon: 'global',
-      items: ['华语', '欧美', '日语', '韩语', '粤语']
-    },
-    {
-      text: '风格',
-      icon: 'appstore-add',
-      items: ['流行', '摇滚', '民谣', '电子', '舞曲', '说唱', '轻音乐', '爵士']
-    },
-    {
-      text: '场景',
-      icon: 'coffee',
-      items: ['清晨', '夜晚', '学习', '工作', '午休', '下午茶', '地铁', '驾车']
-    },
-    {
-      text: '情感',
-      icon: 'smile',
-      items: ['怀旧', '清新', '浪漫', '伤感', '治愈', '放松', '孤独']
-    },
-    {
-      text: '主题',
-      icon: 'appstore',
-      items: ['综艺', '影视原声', 'ACG', '儿童', '校园', '游戏', '70后', '80后', '90后']
+  
+  setSubClass(cls, list) {
+    let clsList = [];
+    for(const key in cls){
+      let item = {
+        text:cls[key],
+        icon: this.tagClass[key],
+        items: []
+      };
+      for(const val of list) {
+        if(key == val.category){
+          item.items.push(val);
+        }
+      }
+      clsList.push(item);
     }
-  ];
+    
+    return clsList;
+  }
+  //获取所有标签
+  getCatList(): void {
+    this.http.get(pathUrl['playlistCatlist']).subscribe(
+      res => {
+        if(res.code == 200) {
+          const {all, categories, sub} = res;
+          this.all = all;
+          this.tagList = this.setSubClass(categories, sub);
+          this.setText();
+        }
+      },
+      err => {},
+      () => { this.btnLoading = false }
+    )
+  }
 
 }

@@ -2,20 +2,28 @@
     <div class="tabs-btn-box">
         <app-tabs-select *ngIf="reload" [tabIndex]="textIndex" (reload)="reloadEl($event)"></app-tabs-select>
     </div>
-    <article>
+    <article *ngIf="hostTags">
         <label>热门标签:</label>
-        <nz-tag class="tabs-item" *ngFor="let tab of tabs" nzColor="default">{{tab}}</nz-tag>
+        <nz-tag class="tabs-item" *ngFor="let tab of hostTags" nzColor="default">{{tab?.name}}</nz-tag>
     </article>
-    <div nz-row [nzGutter]="[16, 24]" class="all-item-box">
-        <div nz-col class="gutter-row" [nzSpan]="6" *ngFor="let item of data;let i = index">
-            <div class="inner-box">
-                <p class="listen-people">
-                    <i nz-icon nzType="customer-service" nzTheme="outline"></i>
-                    <span>{{item.number}}</span>
-                </p>
-                <img [src]="item.image" [alt]="item.text">
-                <p class="inner-text">{{item.text}}</p>
+    <nz-spin [nzSize]="'large'" [nzSpinning]="isLoading" nzDelay="100">
+        <div class="all-item-box">
+            <div nz-row [nzGutter]="[16, 24]" *ngIf="!isLoading">
+                <div nz-col class="gutter-row" [nzSpan]="6" *ngFor="let item of songsList;let i = index"
+                    (click)="goSongsDetail(item.id)">
+                    <div class="inner-box">
+                        <p class="listen-people">
+                            <i nz-icon nzType="customer-service" nzTheme="outline"></i>
+                            <span>{{item.playCount | playCount}}</span>
+                        </p>
+                        <img [src]="item.coverImgUrl+'?param=190y190'" [alt]="item.name">
+                        <p class="inner-text">{{item.name}}</p>
+                    </div>
+                </div>
             </div>
+
         </div>
-    </div>
+        <nz-pagination style="text-align: center;" nzSize="small" [(nzPageIndex)]="pageIndex" [nzPageSize]="limit" (nzPageIndexChange)="changePage($event)"
+            [nzTotal]="total"></nz-pagination>
+    </nz-spin>
 </nz-layout>
