@@ -26,6 +26,12 @@
                 </nz-card>
                 <nz-card *ngFor="let card of item.children; let j = index">
                     <div class="card-body-box" (click)="goSongsDetail(card.id)">
+                        <p class="recommend-text active">
+                            {{card.copywriter}}
+                        </p>
+                        <p class="play-icon">
+                            <i nz-icon nzType="caret-right" nzTheme="outline"></i>
+                        </p>
                         <p class="listen-people">
                             <i nz-icon nzType="customer-service" nzTheme="outline"></i>
                             <span>{{card.playCount | playCount}}</span>

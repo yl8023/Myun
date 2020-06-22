@@ -5,7 +5,7 @@
         </p>
         <div class="list-box">
             <div class="list-item" *ngFor="let item of highQualityTops; index as idx">
-                <nz-list [nzSize]="'small'" [nzLoading]="highQualityTops.length < 5">
+                <nz-list [nzSize]="'small'" [nzLoading]="!item.load">
                     <nz-list-header>
 
                         <div class="title-box" [ngClass]="'co'+idx">
@@ -38,6 +38,9 @@
         </p>
         <div class="list-box">
             <div class="songs" *ngFor="let item of tops, index as idx">
+                <p class="play-icon">
+                    <i nz-icon nzType="caret-right" nzTheme="outline"></i>
+                </p>
                 <p class="listen-people">
                     <i nz-icon nzType="customer-service" nzTheme="outline"></i>
                     <span>{{item.playCount | playCount}}</span>

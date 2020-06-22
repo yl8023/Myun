@@ -54,6 +54,7 @@ export class TopListComponent implements OnInit {
         this.highQualityTops.forEach(val =>{
           if(val.ToplistType == res.playlist.ToplistType){
             val.list = res.playlist.tracks.slice(0,8);
+            val.load = true;
           }
         }) 
       }
@@ -66,7 +67,8 @@ export class TopListComponent implements OnInit {
         const{artists, updateTime} = res.list;
         this.highQualityTops.push({
           updateTime,
-          list: artists.slice(0,8)
+          list: artists.slice(0,8),
+          load: true
         });
       }
     })
