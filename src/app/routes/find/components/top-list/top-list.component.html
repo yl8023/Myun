@@ -1,0 +1,50 @@
+<nz-layout class="component-main">
+    <div>
+        <p class="title">
+            <span>官方榜</span>
+        </p>
+        <div class="list-box">
+            <div class="list-item" *ngFor="let item of highQualityTops; index as idx">
+                <nz-list [nzSize]="'small'" [nzLoading]="highQualityTops.length < 5">
+                    <nz-list-header>
+
+                        <div class="title-box" [ngClass]="'co'+idx">
+                            <i class="big0 fir-big">{{names[idx][0]}}</i>
+                            <p class="big0">{{names[idx][1]}}</p>
+                            <span>{{item.updateTime | date:'MM月dd日'}}更新</span>
+                        </div>
+
+                    </nz-list-header>
+                    <nz-list-item style="padding: 2px 16px;" *ngFor="let song of item.list;index as i">
+                        <div style="width: 100%; cursor: pointer;" nz-row>
+                            <p nz-col nzSpan="2">{{i+1}}</p>
+                            <p class="text-flow" nz-col nzSpan="14">{{song.name}}</p>
+                            <p *ngIf="song.ar" class="text-flow right" nz-col nzSpan="8">{{ song.ar | listPipe: 'name'}}</p>
+                        </div>
+                    </nz-list-item>
+                    <nz-list-footer>
+                        <p class="footer-box">
+                             <span (click)="goSongsDetail(item.ToplistType, item.id)">查看全部></span>
+                        </p>
+                    </nz-list-footer>
+                </nz-list>
+            </div>
+
+        </div>
+    </div>
+    <div>
+        <p class="title">
+            <span>全球榜</span>
+        </p>
+        <div class="list-box">
+            <div class="songs" *ngFor="let item of tops, index as idx">
+                <p class="listen-people">
+                    <i nz-icon nzType="customer-service" nzTheme="outline"></i>
+                    <span>{{item.playCount | playCount}}</span>
+                </p>
+                <img alt="example" [src]="item.coverImgUrl+ '?param=140y140'" />
+                <span>{{item.name}}</span>
+            </div>
+        </div>
+    </div>
+</nz-layout>

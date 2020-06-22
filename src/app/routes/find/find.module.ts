@@ -10,6 +10,7 @@ import { NZ_CAROUSEL_CUSTOM_STRATEGIES } from 'ng-zorro-antd';
 import { FlipStrategy } from './components/flip-strategy';
 import { SongsComponent } from './components/songs/songs.component';
 import { SongsDetailComponent } from '../songs-detail/songs-detail.component';
+import { TopListComponent } from './components/top-list/top-list.component';
 
 
 @NgModule({
@@ -17,7 +18,7 @@ import { SongsDetailComponent } from '../songs-detail/songs-detail.component';
     FindComponent, 
     RecommendComponent, 
     SongsComponent, 
-    SongsDetailComponent,
+    SongsDetailComponent, TopListComponent,
   ],
   imports: [
     CommonModule,

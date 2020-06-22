@@ -13,4 +13,8 @@ export const pathUrl = {
     'topPlaylist': environment.url + '/top/playlist',
     'topPlaylistHighquality': environment.url + '/top/playlist/highquality',
     'playlistDetail': environment.url + '/playlist/detail',
+    'topList': environment.url + '/top/list',
+    'top-list': environment.url + '/toplist',
+    'toplistDetail': environment.url + '/toplist/detail',
+    'toplistArtist': environment.url + '/toplist/artist',
 }
