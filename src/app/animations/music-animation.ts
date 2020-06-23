@@ -8,8 +8,7 @@ export const toMusicInfoAnimation =
       top: '64px',
       zIndex: 10,
       left: 0,
-      
-      
+      backgroundColor: '#fafafa',
     })),
     state('closed', style({
       width: '200px',

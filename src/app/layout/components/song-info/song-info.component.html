@@ -1,7 +1,7 @@
 <nz-layout [@musicAnimation]="animateStatus?'open':'closed'" class="music-info-box layout-scrollbar">
     <nz-content #MusicBG class="content-box" [ngClass]="{'animation-close': !animateStatus}">
         <div class="music-content">
-            <div class="box">
+            <div class="box" *ngIf="startLoad">
                 <div class="music-animation">
                     <div class="circular out">
                         <div class="circular medium">
@@ -31,7 +31,7 @@
                     <span class="text-flow" nz-col nzSpan="8">来源：</span>
                     <a href="" ></a>
                 </p>
-                <div *ngIf="animateStatus">
+                <div *ngIf="startLoad">
                     <app-lyric [musicId]="music?.id"></app-lyric>
                 </div>
             </div>
@@ -43,8 +43,8 @@
         
     </nz-content>
     <nz-content class="content-box">
-        <div class="music-content">
-            <div class="coment-box" *ngIf="animateStatus">
+        <div class="music-content" *ngIf="startLoad">
+            <div class="coment-box">
                 <app-comment [musicId]="music?.id"></app-comment>
             </div>
             <div class="recommend-box">
