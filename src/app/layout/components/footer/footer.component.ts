@@ -17,6 +17,7 @@ export class FooterComponent implements OnInit {
     private audioService: AudioService,
     ) { }
   @ViewChild('audioElm') audioElement;
+  @ViewChild('musicInfo') musicInfoEl;
   // musicInfo: boolean = false;
   musicUrl: string;
   playList = [];
@@ -34,6 +35,9 @@ export class FooterComponent implements OnInit {
     'play': () => {
       this.audioElement.nativeElement.play();
       this.audioService.sendOpTolyric('play');
+      if(this.musicInfoEl.startLoad) {
+        this.musicInfoEl.setBackground();
+      }
     },
     'next': () => {
       this.audioService.changeIndex('next');
@@ -79,7 +83,6 @@ export class FooterComponent implements OnInit {
 
   //播放操作
   getMusicOperation(operation: any): void {
-    console.log(operation);
     this.Operations[operation.code]();
   }
   //播放结束后触发

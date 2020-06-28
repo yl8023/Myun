@@ -33,11 +33,9 @@ export class PlayListComponent implements OnInit {
         this.data.splice(this.playIndex, 0, message.music);
         this.sendMusicIndex(message.music);
       }
-      console.log(this.data);
     });
 
     this.messageChangeMusic = this.audioService.getChangeIndex().subscribe(message => {
-      console.log(message.code);
       switch(message.code){
         case 'next': //手动执行下一首的动作
           this.beforeNextMusic();
@@ -66,9 +64,7 @@ export class PlayListComponent implements OnInit {
   beforeAutoNextMusic(): void{
     switch(this.listPlayModel){
       case 0: // 0: '顺序播放',
-        console.log('顺序播放');
         if(this.playIndex === this.data.length-1){
-          console.log('播放完了');
         };
         break;
       case 2: // 2: '单曲循环',
@@ -102,7 +98,6 @@ export class PlayListComponent implements OnInit {
   }
   //播放列表中添加歌单时默认播放的歌 index
   checkMusic(){
-    console.log('播放模式'+this.listPlayModel);
     if (this.listPlayModel < 3){
       this.playIndex = 0
     } else {
@@ -113,7 +108,6 @@ export class PlayListComponent implements OnInit {
 
   //通知父组件当前歌曲
   sendMusicIndex(music: SongModel): void {
-    console.log('求求你不要播了!!!!');
     this.musicPlay.emit(music);
   }
 }

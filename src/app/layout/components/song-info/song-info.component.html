@@ -1,5 +1,5 @@
 <nz-layout [@musicAnimation]="animateStatus?'open':'closed'" class="music-info-box layout-scrollbar">
-    <nz-content #MusicBG class="content-box" [ngClass]="{'animation-close': !animateStatus}">
+    <nz-content id="MusicBG" class="content-box" [ngClass]="{'animation-close': !startLoad}">
         <div class="music-content">
             <div class="box" *ngIf="startLoad">
                 <div class="music-animation">

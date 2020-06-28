@@ -6,7 +6,22 @@
     .content-box{
         width: 100%;
         padding: 30px 0;
-        background-color: rgba(250, 250, 250, 0.7);
+        background-color: rgba(250, 250, 250, 0.3);
+        position: relative;
+    }
+    #MusicBG::before{
+        background-size: cover;
+        background-position: center;
+        width: 80%;
+        height: 105%;
+        content: "";
+        opacity: 0.8;
+        position: absolute;
+        top: 0;
+        left: 10%;
+        z-index: -1;
+        border-radius: 40%;
+        filter: blur(55px);
     }
     .music-content{
         transition: all 0.5s;
@@ -73,10 +88,7 @@
             width: 290px;
         }
     }
-    .animation-close *{
+    .animation-close{
         display: none;
-        width: 1%;
-        height: 1%;
-        transition: all 0.4s;
     }
 }

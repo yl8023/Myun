@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ElementRef, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Subscription, Observable } from 'rxjs';
 import { toMusicInfoAnimation } from '../../../animations/music-animation';
 import { MusicInfoStuService } from '../../../services/music-info-stu.service';
@@ -17,7 +17,6 @@ export class SongInfoComponent implements OnInit, OnDestroy {
   animateStatus: boolean;
   animeAfterload: Observable<any>;
   startLoad: boolean = false;
-  @ViewChild('MusicBG') musicBackground: ElementRef;
   @Input() music: SongModel ;
   buttons = [
     {text:'喜欢', icon:'heart'},
@@ -63,9 +62,14 @@ export class SongInfoComponent implements OnInit, OnDestroy {
   }
 
   setBackground(): void {
-    this.musicBackground.nativeElement.style.background = `url(${this.music.al?.picUrl}+?param=280y280) no-repeat 100%`
+    this.changeBg(`#MusicBG::before{background: url(${this.music.al?.picUrl}?param=280y280) no-repeat}`)
   }
 
+  changeBg(t){
+    let s =document.createElement('style');
+    s.innerText=t;
+    document.body.appendChild(s);
+}
   ngOnDestroy(): void {
     this.watchStatus.unsubscribe();
   }
