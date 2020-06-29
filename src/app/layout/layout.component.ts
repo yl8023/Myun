@@ -12,8 +12,6 @@ export class LayoutComponent implements OnInit {
     this.setMenu();
   }
   Menu = [];
-  inputValue = '';
-  
 
   ngOnInit(): void {
     this.checkMenuSelect();
@@ -25,10 +23,6 @@ export class LayoutComponent implements OnInit {
 
   menuClick(ev): void {
     
-  }
-  
-  onChange(e) {
-
   }
 
   goRouter(routerUrl: string): void {

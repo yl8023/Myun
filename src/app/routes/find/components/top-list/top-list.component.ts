@@ -19,7 +19,6 @@ export class TopListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllList();
-    this.getArList();
   }
 
   goSongsDetail(type, id): void {
@@ -43,7 +42,7 @@ export class TopListComponent implements OnInit {
         for(let i=0;i<this.highQualityTops.length;i++){
           this.getTop(i);
         }
-        console.log(this.highQualityTops, this.tops);
+        this.getArList();
       }
     })
   }

@@ -13,6 +13,7 @@ export class SongsComponent implements OnInit {
   textIndex: any = 0;
   selectTag: any = '全部歌单';
   hostTags: Array<any>;
+  hotIdx = -1;
   songsList: any;
   total: any = 0;
   pageIndex: any = 1;
@@ -35,7 +36,17 @@ export class SongsComponent implements OnInit {
     this.getHotCats();
     this.toGetSongsDate();
   }
-
+  //选中热门标签
+  clickTag(idx){
+    this.hotIdx = idx;
+    this.hostTags.forEach((val, i)=>{
+      if(idx == i) {
+        val.activity = true;
+      } else {
+        val.activity = false;
+      }
+    })
+  }
   //请求歌单数据
   toGetSongsDate(): void {
     const offset = (this.pageIndex-1)*this.limit;

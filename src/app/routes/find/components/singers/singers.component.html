@@ -1,0 +1,38 @@
+<nz-layout class="component-main">
+    <div class="singer-class">
+        <p class="singer-type">
+            <label>语种：</label>
+            <nz-tag class="tabs-item" (click)="changeSel(areas,idx)" [ngStyle]="{'color': tab.s?'#fafafa':'#8f9096'}"
+                *ngFor="let tab of areas; index as idx" [nzColor]="tab.s?'#8f9096':'#fafafa'">
+                {{tab?.t}}
+            </nz-tag>
+        </p>
+        <p class="singer-type">
+            <label>分类：</label>
+            <nz-tag class="tabs-item" (click)="changeSel(types,idx)" [ngStyle]="{'color': tab.s?'#fafafa':'#8f9096'}"
+                *ngFor="let tab of types; index as idx" [nzColor]="tab.s?'#8f9096':'#fafafa'">
+                {{tab?.t}}
+            </nz-tag>
+        </p>
+        <p class="singer-type">
+            <label>筛选：</label>
+            <nz-tag class="tabs-item" (click)="changeSel(initials,idx)" [ngStyle]="{'color': tab.s?'#fafafa':'#8f9096'}"
+                *ngFor="let tab of initials; index as idx" [nzColor]="tab.s?'#8f9096':'#fafafa'">
+                {{tab?.c | uppercase}}
+            </nz-tag>
+        </p>
+    </div>
+    <nz-spin [nzSize]="'large'" [nzSpinning]="loading" nzDelay="100">
+        <div class="singer-box">
+            <div class="singer" *ngFor="let ar of artists; index as idx">
+                <img [src]="ar.picUrl+'?param=140y140'" alt="">
+                <p class="singer-info">
+                    <span>{{ar.name}}</span>
+                    <button *ngIf="ar.accountId" style="float: right; zoom:0.8;" nz-button nzType="default" nzSize="small" nzShape="circle" nzDanger>
+                        <i nz-icon nzType="user" nzTheme="outline"></i>
+                    </button>
+                </p>
+            </div>
+        </div>
+    </nz-spin>
+</nz-layout>

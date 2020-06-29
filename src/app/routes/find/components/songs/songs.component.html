@@ -4,7 +4,13 @@
     </div>
     <article *ngIf="hostTags">
         <label>热门标签:</label>
-        <nz-tag class="tabs-item" *ngFor="let tab of hostTags" nzColor="default">{{tab?.name}}</nz-tag>
+        <nz-tag class="tabs-item" 
+            (click)="clickTag(idx)" 
+            [ngStyle]="{'color': tab.activity?'#fafafa':'#8f9096'}" 
+            *ngFor="let tab of hostTags; index as idx" 
+            [nzColor]="tab.activity?'#8f9096':'#fafafa'">
+            {{tab?.name}}
+        </nz-tag>
     </article>
     <nz-spin [nzSize]="'large'" [nzSpinning]="isLoading" nzDelay="100">
         <div class="all-item-box">

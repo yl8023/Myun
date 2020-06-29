@@ -11,6 +11,7 @@ import { FlipStrategy } from './components/flip-strategy';
 import { SongsComponent } from './components/songs/songs.component';
 import { SongsDetailComponent } from '../songs-detail/songs-detail.component';
 import { TopListComponent } from './components/top-list/top-list.component';
+import { SingersComponent } from './components/singers/singers.component';
 
 
 @NgModule({
@@ -18,7 +19,7 @@ import { TopListComponent } from './components/top-list/top-list.component';
     FindComponent, 
     RecommendComponent, 
     SongsComponent, 
-    SongsDetailComponent, TopListComponent,
+    SongsDetailComponent, TopListComponent, SingersComponent,
   ],
   imports: [
     CommonModule,

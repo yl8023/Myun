@@ -13,9 +13,9 @@ export const pathUrl = {
     'topPlaylist': environment.url + '/top/playlist',
     'topPlaylistHighquality': environment.url + '/top/playlist/highquality',
     'playlistDetail': environment.url + '/playlist/detail',
-    'topList': environment.url + '/top/list',
-    'top-list': environment.url + '/toplist',
-    'toplistDetail': environment.url + '/toplist/detail',
-    'toplistArtist': environment.url + '/toplist/artist',
-    'artistList': environment.url + '/artist/list'
+    'topList': environment.url + '/top/list',              //排行榜
+    'top-list': environment.url + '/toplist',              //所有榜单
+    'toplistDetail': environment.url + '/toplist/detail',   //所有榜单内容摘要
+    'toplistArtist': environment.url + '/toplist/artist',  //歌手榜
+    'artistList': environment.url + '/artist/list'  //歌手分类列表
 }

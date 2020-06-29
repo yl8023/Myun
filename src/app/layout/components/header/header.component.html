@@ -1,0 +1,25 @@
+<nz-header>
+    <div nz-row>
+      <div class="logo" nz-col nzFlex="120px">
+
+      </div>
+      <div nz-row nz-col nzFlex="auto" >
+        <div nz-col nzFlex="auto">
+          <nz-button-group nzSize="small" class="header-btn">
+            <button nz-button [disabled]="urlIndex === 0" (click)="goUrl(-1)" nzType="primary"><i nz-icon nzType="left"></i></button>
+            <button nz-button [disabled]="urlIndex === history.length - 1" (click)="goUrl(1)" nzType="primary"><i nz-icon nzType="right"></i></button>
+          </nz-button-group>
+          <nz-input-group [nzSuffix]="suffixIcon" class="search-input">
+            <input nz-input [(ngModel)]="inputValue" (ngModelChange)="onChange($event)" placeholder="搜索音乐，视频，歌词，电台"/>
+          </nz-input-group>
+          <ng-template #suffixIcon>
+            <i nz-icon nzType="search"></i>
+          </ng-template>
+        </div>
+        <div nz-col nzFlex="400px">
+
+        </div>
+      </div>
+    </div>
+    
+  </nz-header>
