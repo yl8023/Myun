@@ -28,7 +28,7 @@ export class RecommendComponent implements OnInit, AfterViewInit {
     this.getpersonalizedNewsong();
     this.getpersonalizedMv();
     this.getpersonalizedPrivatecontent();
-    this.getprogramRecommend();
+    // this.getprogramRecommend();
     this.getDjprogram();
   }
   goSongsDetail(id): void {
@@ -86,7 +86,7 @@ export class RecommendComponent implements OnInit, AfterViewInit {
   getprogramRecommend() {
     this.http.get(pathUrl['programRecommend']).subscribe(res => {
       if(res.code == 200){
-        console.log(res.result);
+        // console.log(res.result);
       }
     })
   }
