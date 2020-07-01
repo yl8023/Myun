@@ -1,0 +1,11 @@
+<nz-layout class="component-main">
+    <nz-spin [nzSpinning]="loading">
+        <div class="carousel-box">
+            <nz-carousel nzAutoPlay="true" nzAutoPlaySpeed="5000" (nzAfterChange)="carouselChange($event)">
+                <div nz-carousel-content *ngFor="let banner of djBanner">
+                    <img [src]="banner.pic+'?param=768y300'" alt="">
+                </div>
+            </nz-carousel>
+        </div>
+    </nz-spin>
+</nz-layout>

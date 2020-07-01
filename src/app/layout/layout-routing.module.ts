@@ -17,6 +17,7 @@ const routes: Routes = [
       { path: 'download-music', loadChildren: () => import('../routes/download-music/download-music.module').then(m => m.DownloadMusicModule) },
       { path: 'local-music', loadChildren: () => import('../routes/local-music/local-music.module').then(m => m.LocalMusicModule) },
       { path: 'my-collection', loadChildren: () => import('../routes/my-collection/my-collection.module').then(m => m.MyCollectionModule) },
+      { path: 'user', loadChildren:() => import('../routes/user/user.module').then(m => m.UserModule) },
     ]
   },
   

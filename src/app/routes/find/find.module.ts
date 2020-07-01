@@ -12,6 +12,8 @@ import { SongsComponent } from './components/songs/songs.component';
 import { SongsDetailComponent } from '../songs-detail/songs-detail.component';
 import { TopListComponent } from './components/top-list/top-list.component';
 import { SingersComponent } from './components/singers/singers.component';
+import { NewSongComponent } from './components/new-song/new-song.component';
+import { OnlineDjComponent } from './components/online-dj/online-dj.component';
 
 
 @NgModule({
@@ -19,7 +21,7 @@ import { SingersComponent } from './components/singers/singers.component';
     FindComponent, 
     RecommendComponent, 
     SongsComponent, 
-    SongsDetailComponent, TopListComponent, SingersComponent,
+    SongsDetailComponent, TopListComponent, SingersComponent, NewSongComponent, OnlineDjComponent,
   ],
   imports: [
     CommonModule,

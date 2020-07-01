@@ -10,15 +10,14 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 import { AppComponent } from './app.component';
-import { MyCollectionComponent } from './routes/my-collection/my-collection.component';
+
 
 
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    MyCollectionComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
