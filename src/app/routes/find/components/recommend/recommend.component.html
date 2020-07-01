@@ -98,7 +98,7 @@
                 <div class="dj-box">
                     <div class="dj" *ngFor="let dj of item.children; index as idx">
                         <img [src]="dj.program.radio.picUrl+'?param=140y140'" alt="">
-                        <p>{{dj.program.radio.name}}</p>
+                        <p class="dj-name">{{dj.program.radio.name}}</p>
                         <p class="dj-info">
                             <span>{{dj.program.radio.rcmdText}}</span>
                         </p>

@@ -59,7 +59,7 @@ export class RecommendComponent implements OnInit, AfterViewInit {
   getDjprogram() {
     this.http.get(pathUrl['personalizedDjprogram']).subscribe(res => {
       if(res.code == 200){
-        this.data[5].children = res.result;
+        this.data[4].children = res.result;
       }
     })
   }
@@ -86,7 +86,7 @@ export class RecommendComponent implements OnInit, AfterViewInit {
   getprogramRecommend() {
     this.http.get(pathUrl['programRecommend']).subscribe(res => {
       if(res.code == 200){
-        this.data[4].children = res.result;
+        console.log(res.result);
       }
     })
   }
@@ -131,19 +131,19 @@ export class RecommendComponent implements OnInit, AfterViewInit {
       children:[]
     },
     {
-      title: '推荐节目',
-      link: '',
-      code: 'tjjm',
-      tabIndex: -1,
-      children:[]
-    },
-    {
       title: '主播电台',
       link: '',
       code: 'zbdt',
       tabIndex: 2,
       children:[]
     },
+    // {
+    //   title: '推荐节目',
+    //   link: '',
+    //   code: 'tjjm',
+    //   tabIndex: -1,
+    //   children:[]
+    // },
   ]
 
   carouselChange(i): void {
