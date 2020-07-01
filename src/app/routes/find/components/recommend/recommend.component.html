@@ -43,7 +43,7 @@
             </section>
             <section class="card-box" *ngIf="item.code == 'zxyy'">
                 <ul class="new-song-list">
-                    <li *ngFor="let item of item.children;index as i">
+                    <li class="li-item" *ngFor="let item of item.children;index as i">
                         <p class="item-box">
                             <span class="item-id">{{i+1}}</span>
                             <img [src]="item.picUrl+ '?param=40y40'" alt="">

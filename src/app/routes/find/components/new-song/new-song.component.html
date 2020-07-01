@@ -1,1 +1,55 @@
-<p>new-song works!</p>
+<nz-layout class="component-main">
+    <div class="button-select-box">
+        <nz-button-group nzSize="small">
+            <button nz-button (click)="clickChange(true)" [nzType]="newSongStu?'primary':'default'"
+                nzDanger>新歌速递</button>
+            <button nz-button (click)="clickChange(false)" [nzType]="newSongStu?'default':'primary'"
+                nzDanger>新碟上架</button>
+        </nz-button-group>
+    </div>
+    <div class="new-song-tabset">
+        <ng-template #extraTemplate>
+        </ng-template>
+        <nz-tabset *ngIf="newSongStu" [nzTabBarExtraContent]="extraTemplate" [(nzSelectedIndex)]="tabsetIndex"
+            (nzSelectedIndexChange)="selectChange($event)" [nzAnimated]="false">
+            <nz-tab *ngFor="let tab of areas" [nzTitle]="tab.t">
+                <nz-spin [nzSize]="'large'" [nzSpinning]="loading" nzDelay="100">
+                    <ul class="new-song-list">
+                        <li class="li-item" *ngFor="let item of newSongs;index as idx">
+                            <p class="item-box">
+                                <span class="item-id">{{idx+1}}</span>
+                                <img [src]="item.album.picUrl+ '?param=40y40'" alt="">
+                                <span class="play-icon">
+                                    <i nz-icon nzType="caret-right" nzTheme="outline"></i>
+                                </span>
+                            </p>
+                            <div class="text-box" nz-row>
+                                <p class="text-flow" nz-col nzSpan="10">{{item.name}}</p>
+                                <p class="text-flow" nz-col nzSpan="6">{{item.artists | listPipe: 'name'}}</p>
+                                <p class="text-flow" nz-col nzSpan="6">{{item.album.name}}</p>
+                                <p nz-col nzSpan="2">{{item.duration | date: 'mm:ss'}}</p>
+                            </div>
+                        </li>
+                    </ul>
+                </nz-spin>
+            </nz-tab>
+        </nz-tabset>
+        <nz-spin [nzSize]="'large'" [nzSpinning]="loading" nzDelay="100">
+            <div class="albums-box" *ngIf="!newSongStu">
+                <div class="albums" *ngFor="let album of albums">
+                    <div class="albums-box-line"></div>
+                    <div class="albums-box-cd"></div>
+                    <div class="albums-info">
+                        <img [src]="album.picUrl+'?param=140y140'" alt="">
+                        <p>
+                            <span>{{album.name}}</span>
+                        </p>
+                        <p>
+                            <span>{{album.artists | listPipe: 'name'}}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </nz-spin>
+    </div>
+</nz-layout>

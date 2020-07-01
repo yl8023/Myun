@@ -10,6 +10,7 @@ import { pathUrl } from '../../../../shared/http/path';
 })
 export class TopListComponent implements OnInit {
   highQualityTops: any = [];
+  loading: boolean = true;
   tops: any = [];
   names: any = [['飙','升榜'],['新','歌榜'],['原','创榜'],['热','歌榜'],['歌','手榜']];
   constructor(
@@ -70,6 +71,9 @@ export class TopListComponent implements OnInit {
           load: true
         });
       }
+    },err=>{},
+    ()=>{
+      this.loading = false;
     })
   }
 

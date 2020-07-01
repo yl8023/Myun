@@ -8,7 +8,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let data of songTable.data; let i = index" (dblclick)="addMusic(data)">
+        <tr class="li-item" *ngFor="let data of songTable.data; let i = index" (dblclick)="addMusic(data)">
           <td class="music-color" [nzAlign]="'right'">{{i+1}}</td>
           <td class="opt-btn music-color">
             <span><i nz-icon nzType="heart" nzTheme="outline"></i></span>

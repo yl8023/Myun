@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~ng-zorro-antd/ng-zorro-antd.less';
+p{
+    margin: 0;
+}
 .component-main{
     background: none;
 }
@@ -32,10 +35,18 @@
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-p{
-    margin: 0;
-}
 
+.li-item:nth-child(odd)
+{
+    background:#fafafa;
+}
+.li-item:nth-child(even)
+{
+    background:#f5f5f7;
+}
+.li-item:hover{
+    background:#ebeced;
+}
 .layout-scrollbar::-webkit-scrollbar {
     /*滚动条整体样式*/
     width : 6px;  /*高宽分别对应横竖滚动条的尺寸*/

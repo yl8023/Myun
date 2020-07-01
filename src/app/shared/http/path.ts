@@ -25,4 +25,6 @@ export const pathUrl = {
     'artistList': environment.url + '/artist/list',  //歌手分类列表
     'djBanner': environment.url + '/dj/banner',    //电台banner
     'djCatelist': environment.url + '/dj/catelist',    //电台分类
+    'topSong': environment.url + '/top/song',       //新歌速递
+    'topAlbum': environment.url + '/top/album' ,             //新碟上架
 }
