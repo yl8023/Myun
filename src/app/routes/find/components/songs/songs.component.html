@@ -1,6 +1,6 @@
 <nz-layout class="component-main">
     <div class="tabs-btn-box">
-        <app-tabs-select *ngIf="reload" [tabIndex]="textIndex" (reload)="reloadEl($event)"></app-tabs-select>
+        <app-tabs-select *ngIf="reload" [tabIndex]="textIndex" [type]="'gd'" (reload)="reloadEl($event)"></app-tabs-select>
     </div>
     <article *ngIf="hostTags">
         <label>热门标签:</label>

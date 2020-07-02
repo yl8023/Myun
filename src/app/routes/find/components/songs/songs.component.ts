@@ -25,6 +25,7 @@ export class SongsComponent implements OnInit {
   ) { }
   
   reloadEl(ev) {
+    console.log(ev);
     this.reload = ev.re;
     this.textIndex = ev.selectIndex;
     this.selectTag = ev.select;

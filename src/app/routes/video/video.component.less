@@ -1,0 +1,38 @@
+nz-layout{
+    .tabs-btn-box{
+        height: 40px;
+        line-height: 40px;
+    }
+    .tabs-item{
+        margin: 0 8px;
+    }
+    .title-item{
+        margin-top: 16px;
+        .title{
+            border-bottom: 1px solid #e1e1e2;
+            padding: 4px 0;
+            span{
+                font-size: 18px;
+                color: #333;
+                padding-right: 16px;
+            }
+            .more{
+                float: right;
+                color: #999;
+            }
+        }
+    }
+}
+::ng-deep{
+    .tabset-box{
+        .ant-tabs-nav .ant-tabs-tab:hover{
+            color: #c62f2f;
+        }
+        .ant-tabs-nav .ant-tabs-tab-active{
+            color: #c62f2f;
+        }
+        .ant-tabs-ink-bar{
+            background-color: #c62f2f;
+        }
+    }
+}

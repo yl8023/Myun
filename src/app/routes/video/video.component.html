@@ -1,1 +1,27 @@
-<p>video works!</p>
+<nz-layout class="main-content">
+    <div class="tabset-box">
+        <nz-tabset nzAnimated="false" [nzTabBarStyle]="{'text-align':'center'}">
+            <nz-tab nzTitle="视频">
+                <div class="tabs-btn-box">
+                    <app-tabs-select *ngIf="reload" [videoTagIndex]="tagIndex" [type]="'sp'"
+                        (reload)="reloadEl($event)">
+                    </app-tabs-select>
+                </div>
+            </nz-tab>
+            <nz-tab nzTitle="MV">
+                <div class="title-item">
+                    <p class="title">
+                        <span>最新MV</span>
+                        <nz-tag *ngFor="let area of areas" 
+                            [ngStyle]="{'color': area.s?'#fafafa':'#8f9096'}" 
+                            [nzColor]="area.s?'#8f9096':'#fafafa'">
+                            {{area.t}}
+                        </nz-tag>
+                        <a class="more">更多></a>
+                    </p>
+                </div>
+            </nz-tab>
+        </nz-tabset>
+    </div>
+
+</nz-layout>

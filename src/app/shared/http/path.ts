@@ -31,4 +31,10 @@ export const pathUrl = {
     'djPaygift': environment.url + '/dj/paygift',                          //电台-付费精选
     'topSong': environment.url + '/top/song',                               //新歌速递
     'topAlbum': environment.url + '/top/album' ,                            //新碟上架
+    'videoGroupList': environment.url + '/video/group/list',                //视频标签列表
+    'videoGroup': environment.url + '/video/group',                         //视频分类下的视频
+    
+    'mvFirst': environment.url + '/mv/first',                                //最新Mv
+    'mvAll': environment.url + '/mv/all',                                   //全部Mv
+    'mvExclusiveRcmd': environment.url + '/mv/exclusive/rcmd',              //网易出品MV
 }

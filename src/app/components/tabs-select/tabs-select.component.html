@@ -1,6 +1,6 @@
 <button nz-button nzSize="small" 
     nz-popover nzPopoverTitle="添加标签" 
-    [nzPopoverContent]="contentTemplate"
+    [nzPopoverContent]="tplTxt"
     nzPopoverTrigger="click" 
     nzPopoverPlacement="bottomLeft" 
     [nzOverlayStyle]="{'width': '514px'}"
@@ -20,6 +20,18 @@
             <section nz-col nzFlex="390px">
                 <span class="tab-item" [ngClass]="{'tab-select':tabIndex[0] == i && tabIndex[1] == j,'hot':tab.hot}"
                     *ngFor="let tab of item.items; let j = index" (click)="tabSelected(i,j)">{{tab.name}}</span>
+            </section>
+        </article>
+    </div>
+</ng-template>
+<ng-template #videoTemplate>
+    <div class="tabs-box">
+        <p class="all-tab" (click)="videoSelect(-1)" [ngClass]="videoTagIndex == -1 ? 'tab-select':''">全部视频</p>
+        <article class="tabs-colume video-tag" *ngFor="let videoTag of videoTagList; index as i">
+            <section>
+                <span class="tab-item" (click)="videoSelect(i)" [ngClass]="{'tab-select':videoTagIndex == i}">
+                    {{videoTag.name}}
+                </span>
             </section>
         </article>
     </div>

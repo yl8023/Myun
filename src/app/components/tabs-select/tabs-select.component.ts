@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, ViewChild } from '@angular/core';
 import { HttpService } from '../../shared/http/http.service';
 import { pathUrl } from '../../shared/http/path';
 
@@ -9,13 +9,19 @@ import { pathUrl } from '../../shared/http/path';
 })
 export class TabsSelectComponent implements OnInit {
   @Input() tabIndex: any = 0;
+  @Input() videoTagIndex: any = -1;
+  @Input() type: any;
   @Output() reload = new EventEmitter<any>();
   @Input() hostTags: Array<any>;
+  @ViewChild('contentTemplate') contentTemplate;
+  @ViewChild('videoTemplate') videoTemplate;
+  tplTxt: string;
   btnLoading: boolean = true;
   buttonText: any;
   all: any;
   tagClass: any = ['global', 'appstore-add', 'coffee', 'smile', 'appstore'];
   tagList: any;
+  videoTagList: any;
   constructor(
     private http: HttpService,
   ) { }
@@ -28,7 +34,13 @@ export class TabsSelectComponent implements OnInit {
     this.setText();
     this.toReload();
   }
-
+  toReload(): void {
+    this.reload.emit({
+      re: false,
+      select: this.buttonText.name,
+      selectIndex: this.tabIndex
+    });
+  }
   //按钮显示的值
   setText(): void {
     if (this.tabIndex === 0) {
@@ -38,15 +50,16 @@ export class TabsSelectComponent implements OnInit {
     }
   }
   //重新渲染组件
-  toReload(): void {
-    this.reload.emit({
-      re: false,
-      select: this.buttonText.name,
-      selectIndex: this.tabIndex
-    });
-  }
+  
   ngOnInit(): void {
-    this.getCatList();
+    console.log(this.type);
+    switch(this.type){
+      case 'gd':
+        this.getCatList();
+        break;
+      case 'sp': this.getvideoGroupList();
+        break;
+    }
   }
   
   setSubClass(cls, list) {
@@ -67,7 +80,7 @@ export class TabsSelectComponent implements OnInit {
     
     return clsList;
   }
-  //获取所有标签
+  //获取所有歌单标签
   getCatList(): void {
     this.http.get(pathUrl['playlistCatlist']).subscribe(
       res => {
@@ -79,7 +92,51 @@ export class TabsSelectComponent implements OnInit {
         }
       },
       err => {},
-      () => { this.btnLoading = false }
+      () => { 
+        this.btnLoading = false;
+        this.tplTxt = this.contentTemplate;
+       }
+    )
+  }
+  
+  videoSelect(idx: any): void {
+    this.videoTagIndex = idx;
+    this.videoSetText();
+    this.videotoReload();
+  }
+  videoSetText() {
+    if(this.videoTagIndex == -1) {
+      this.buttonText = {name: '全部视频'};
+    } else {
+      this.buttonText = this.videoTagList[this.videoTagIndex];
+    }
+  }
+  videotoReload(): void {
+    let videoTagId; 
+    if (this.videoTagIndex == -1) {
+      videoTagId = 0;
+    }else{
+      videoTagId = this.videoTagList[this.videoTagIndex].id
+    }
+    this.reload.emit({
+      re: false,
+      selectIdx: this.videoTagIndex,
+      selectId: videoTagId
+    });
+  }
+  //获取所有视频标签
+  getvideoGroupList(): void {
+    this.http.get(pathUrl['videoGroupList']).subscribe(
+      res => {
+        if(res.code == 200) {
+          this.videoTagList = res.data;
+        }
+      },err=>{},
+      ()=>{
+        this.videoSetText();
+        this.btnLoading = false;
+        this.tplTxt = this.videoTemplate;
+      }
     )
   }
 
