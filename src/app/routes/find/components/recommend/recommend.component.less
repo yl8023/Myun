@@ -25,7 +25,7 @@ nz-layout{
         -webkit-line-clamp: 2;
         overflow: hidden;
         z-index: 0;
-        transition: top 1s;
+        transition: top .5s ease;
     }
     nz-carousel {
         max-width: 752px;
@@ -52,7 +52,7 @@ nz-layout{
             }
             .more{
                 float: right;
-                color: #444;
+                color: #999;
             }
         }
         .card-box{
@@ -162,8 +162,9 @@ nz-layout{
             .dj-box{
                 display: flex;
                 flex-flow: row wrap;
-                height: calc(13.6vw + 44px);
-                max-height: 244px;
+                height: calc(13.6vw + 60px);
+                min-height: 200px;
+                max-height: 260px;
                 overflow: hidden;
                 .dj{
                     min-width: 140px;

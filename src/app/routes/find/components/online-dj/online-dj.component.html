@@ -7,5 +7,74 @@
                 </div>
             </nz-carousel>
         </div>
+        <div class="categorie-box">
+            <p class="left-btn btns" *ngIf="categorieIndex == 1" (click)="cilckChangeIndex(-1)">
+                <i nz-icon nzType="left" nzTheme="outline"></i>
+            </p>
+            <p class="right-btn btns" *ngIf="categorieIndex == 0" (click)="cilckChangeIndex(1)">
+                <i nz-icon nzType="right" nzTheme="outline"></i>
+            </p>
+            <div class="categories-inner">
+                <div class="categories" [ngClass]="{'left':categorieIndex == 0,'right': categorieIndex == 1}">
+                    <div class="categorie-item" *ngFor="let categorie of categories">
+                        <p><img [src]="categorie.pic56x56Url+'?param=36y36'" alt=""></p>
+                        <p><span>{{categorie.name}}</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="title-item">
+            <p class="title">
+                <span>付费精品</span>
+                <a class="more">更多></a>
+            </p>
+        </div>
+        <div class="top-pay">
+            <div class="pay-dj-box" *ngFor="let pay of nowList" nz-row>
+                <div class="dj-img" nz-col nzFlex="120px">
+                    <img [src]="pay.picUrl+'?param=120y120'" alt="">
+                </div>
+                <div class="text-box" nz-col nzFlex="auto">
+                    <p class="name">{{pay.name}}</p>
+                    <p class="text-flow">{{pay.rcmdText}}</p>
+                    <p class="text-flow">▷{{pay.lastProgramName}}</p>
+                    <span>{{pay.originalPrice/100}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="title-item">
+            <p class="title">
+                <span>电台个性推荐</span>
+                <a class="more">更多></a>
+            </p>
+        </div>
+        <div class="recommend-box">
+            <div class="recommend" *ngFor="let recom of recommend">
+                <img [src]="recom.picUrl+'?param=140y140'" alt="">
+                <p class="recommend-name text-flow">{{recom.name}}</p>
+                <p class="recommend-info">
+                    <span>{{recom.rcmdtext}}</span>
+                </p>
+            </div>
+        </div>
+        <div class="categorie-recommend" *ngFor="let categorie of categorieRecommend">
+            <div class="title-item">
+                <p class="title">
+                    <span>{{categorie.name}}</span>
+                    <a class="more">更多></a>
+                </p>
+            </div>
+            <div class="recommend-box">
+                <div class="recommend" *ngFor="let recom of categorie.djRadios">
+                    <img [src]="recom.picUrl+'?param=140y140'" alt="">
+                    <p class="recommend-name text-flow">{{recom.name}}</p>
+                    <p class="recommend-info">
+                        <span>{{recom.rcmdtext}}</span>
+                        <span *ngIf="!recom.rcmdtext">{{recom.lastProgramName}}</span>
+                    </p>
+                </div>
+            </div>
+        </div>
     </nz-spin>
 </nz-layout>

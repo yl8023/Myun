@@ -19,4 +19,133 @@ nz-layout{
         font-family: Vollkorn, 'PingFang SC', 'Helvetica', Arial;
         background: #555;
     }
+    .categorie-box{
+        margin: 32px auto 16px;
+        width: 700px;
+        height: 70px;
+        position: relative;
+        .categories-inner{
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            .categories{
+                position: absolute;
+                transition: left .8s;
+                display: flex;
+                flex-flow: row wrap;
+                max-width: 1400px;
+                .categorie-item{
+                    text-align: center;
+                    width: 70px;
+                    height: 70px;
+                    color: #c62f2f;
+                }
+            }
+        }
+        
+        .btns{
+            font-size: 35px;
+            width: 35px;
+            height: 70px;
+            line-height: 58px;
+            color: #ccc;
+            position: absolute;
+        }
+        .btns:hover{
+            color: #999;
+        }
+        .left-btn{
+            left: -35px;
+        }
+        .right-btn{
+            right: -35px;
+        }
+        .left{
+            left:0;
+        }
+        .right{
+            left: -700px;
+        }
+    }
+    .title-item{
+        margin-top: 32px;
+        .title{
+            border-bottom: 1px solid #e1e1e2;
+            padding: 4px 0;
+            span{
+                font-size: 18px;
+                color: #333;
+            }
+            .more{
+                float: right;
+                color: #999;
+            }
+        }
+    }
+    .top-pay{
+        display: flex;
+        flex-flow: row wrap;
+        .pay-dj-box{
+            width: 50%;
+            padding: 12px 0;
+            border-bottom: 1px solid #e1e1e2;
+            .dj-img{
+                width: 120px;
+            }
+            .text-box{
+                padding: 0 12px;
+                width: calc(100% - 120px);
+                p{
+                    color: #999;
+                    font-size: 14px;
+                }
+                .name{
+                    color: #333;
+                    font-size: 16px;
+                    padding:6px 0;
+                }
+                span{
+                    color: #c62f2f;
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+    .recommend-box{
+        display: flex;
+        flex-flow: row wrap;
+        height: calc(13.6vw + 60px);
+        min-height: 200px;
+        max-height: 260px;
+        overflow: hidden;
+        .recommend{
+            min-width: 140px;
+            max-width: 200px;
+            width: 13.6vw;
+            height: 13.6vw;
+            min-height: 140px;
+            max-height: 200px;
+            position: relative;
+            margin: 12px 6px 36px;
+            border:1px solid #d1d1d1;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+            .recommend-name{
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                padding: 4px;
+                color: #fff;
+                width: 100%;
+            }
+            .recommend-info{
+                margin: 6px 0;
+                height: 44px;
+            }
+        }
+    }
+    
 }
