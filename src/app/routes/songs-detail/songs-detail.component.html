@@ -71,7 +71,7 @@
             </nz-tab>
             <nz-tab [nzTitle]="'评论('+sonsDetail.commentCount+')'">
                 <ng-template nz-tab>
-                    <app-comment></app-comment>
+                    <app-comment [type]="1" [mid]="songsId"></app-comment>
                 </ng-template>
             </nz-tab>
             <nz-tab nzTitle="收藏者">

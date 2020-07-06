@@ -1,18 +1,26 @@
 <nz-layout class="main-content">
     <div nz-row>
-        <div nz-col [nzSpan]="17">
+        <div nz-col [nzSpan]="16">
             <p class="video-name">
                 <button nz-button nzType="link" nzDanger nzSize="small" (click)="backRoute()">
                     <i nz-icon nzType="left" nzTheme="outline"></i>
                 </button>
                 <nz-tag [nzColor]="'red'">MV</nz-tag>
-                <span>{{mvInfo?.name}}</span>
-                <span>{{mvInfo?.artistName}}</span>
+                <span class="name">{{mvInfo?.name}}</span>
+                <span class="craetor">{{mvInfo?.artistName}}</span>
             </p>
-            <div style="height: 420px;">
+            <div style="height: 400px;">
                 <app-video [Path]="mvUrl?.url"></app-video>
             </div>
         </div>
-        <div nz-col [nzSpan]="7">2</div>
+        <div nz-col [nzSpan]="8" class="video-info">
+            <p class="title">视频介绍</p>
+            <div nz-row [nzJustify]="'space-between'">
+                <p nz-col>发布时间：{{mvInfo?.publishTime}}</p>
+                <p nz-col>播放次数：{{mvInfo?.playCount}}次</p>
+            </div>
+            <p class="desc">简介：{{mvInfo?.desc}}</p>
+            <p class="tags" *ngIf="mvInfo.videoGroup.length > 0">标签：{{mvInfo?.videoGroup | listPipe: 'name'}}</p>
+        </div>
     </div>
 </nz-layout>

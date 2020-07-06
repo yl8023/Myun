@@ -3,45 +3,50 @@
     <span>(已有{{comment?.total}}条评论)</span>
 </p>
 <ng-template #indicatorTemplate><i nz-icon nzType="loading"></i></ng-template>
-<nz-spin [nzIndicator]="indicatorTemplate" [nzSpinning]="loading" nzSize="large">
-    <div class="comment-box host">
-        <p class="comment title">精彩评论</p>
-        <nz-comment *ngFor="let com of comment?.hotComments" [nzAuthor]="com.user.nickname" [nzDatetime]="com.time | date:'MM月dd日 HH:mm'">
-            <nz-avatar nz-comment-avatar nzIcon="user" [nzSrc]="com.user.avatarUrl">
-            </nz-avatar>
-            <nz-comment-content>
-                <p>{{com.content}}</p>
-            </nz-comment-content>
-            <nz-comment-action>
-                <i nz-tooltip nzTitle="Like" nz-icon nzType="like" [nzTheme]="com.liked ? 'twotone' : 'outline'"></i>
-                <span class="count like">{{com.likedCount}}</span>
-            </nz-comment-action>
-            <nz-comment-action>
-                <i nz-tooltip nzTitle="分享" nz-icon nzType="share-alt" nzTheme="outline"></i>
-            </nz-comment-action>
-            <nz-comment-action>
-                <i nz-tooltip nzTitle="回复" nz-icon nzType="comment" nzTheme="outline"></i>
-            </nz-comment-action>
-        </nz-comment>
-    </div>
-    <div class="comment-box host">
-        <p class="comment title">最新评论</p>
-        <nz-comment *ngFor="let com of comment?.comments" [nzAuthor]="com.user.nickname" [nzDatetime]="com.time">
-            <nz-avatar nz-comment-avatar nzIcon="user" [nzSrc]="com.user.avatarUrl">
-            </nz-avatar>
-            <nz-comment-content>
-                <p>{{com.content}}</p>
-            </nz-comment-content>
-            <nz-comment-action>
-                <i nz-tooltip nzTitle="Like" nz-icon nzType="like" [nzTheme]="com.liked ? 'twotone' : 'outline'"></i>
-                <span class="count like">{{com.likedCount}}</span>
-            </nz-comment-action>
-            <nz-comment-action>
-                <i nz-tooltip nzTitle="分享" nz-icon nzType="share-alt" nzTheme="outline"></i>
-            </nz-comment-action>
-            <nz-comment-action>
-                <i nz-tooltip nzTitle="回复" nz-icon nzType="comment" nzTheme="outline"></i>
-            </nz-comment-action>
-        </nz-comment>
-    </div>
-</nz-spin>
+<div class="comments">
+    <nz-spin [nzIndicator]="indicatorTemplate" [nzSpinning]="loading" nzSize="large">
+        <div class="comment-box host">
+            <p class="comment title">精彩评论</p>
+            <nz-comment *ngFor="let com of comment?.hotComments" [nzAuthor]="com.user.nickname"
+                [nzDatetime]="com.time | date:'yyyy年MM月dd日 HH:mm'">
+                <nz-avatar nz-comment-avatar nzIcon="user" [nzSrc]="com.user.avatarUrl">
+                </nz-avatar>
+                <nz-comment-content>
+                    <p>{{com.content}}</p>
+                </nz-comment-content>
+                <nz-comment-action>
+                    <i nz-tooltip nzTitle="Like" nz-icon nzType="like"
+                        [nzTheme]="com.liked ? 'twotone' : 'outline'"></i>
+                    <span class="count like">{{com.likedCount}}</span>
+                </nz-comment-action>
+                <nz-comment-action>
+                    <i nz-tooltip nzTitle="分享" nz-icon nzType="share-alt" nzTheme="outline"></i>
+                </nz-comment-action>
+                <nz-comment-action>
+                    <i nz-tooltip nzTitle="回复" nz-icon nzType="comment" nzTheme="outline"></i>
+                </nz-comment-action>
+            </nz-comment>
+        </div>
+        <div class="comment-box host">
+            <p class="comment title">最新评论</p>
+            <nz-comment *ngFor="let com of comment?.comments" [nzAuthor]="com.user.nickname" [nzDatetime]="com.time | date:'yyyy年MM月dd日 HH:mm'">
+                <nz-avatar nz-comment-avatar nzIcon="user" [nzSrc]="com.user.avatarUrl">
+                </nz-avatar>
+                <nz-comment-content>
+                    <p>{{com.content}}</p>
+                </nz-comment-content>
+                <nz-comment-action>
+                    <i nz-tooltip nzTitle="Like" nz-icon nzType="like"
+                        [nzTheme]="com.liked ? 'twotone' : 'outline'"></i>
+                    <span class="count like">{{com.likedCount}}</span>
+                </nz-comment-action>
+                <nz-comment-action>
+                    <i nz-tooltip nzTitle="分享" nz-icon nzType="share-alt" nzTheme="outline"></i>
+                </nz-comment-action>
+                <nz-comment-action>
+                    <i nz-tooltip nzTitle="回复" nz-icon nzType="comment" nzTheme="outline"></i>
+                </nz-comment-action>
+            </nz-comment>
+        </div>
+    </nz-spin>
+</div>
