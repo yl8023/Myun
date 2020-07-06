@@ -1,8 +1,8 @@
-.main-layout{
-    height: 100%;
-    min-width: 1022px;
-}
+
 ::ng-deep {
+    app-lay{
+        height: 100%;
+    }
     .ant-menu-item-group-title{
         padding-bottom: 0;
         padding-left: 2px;
@@ -71,10 +71,21 @@ nz-breadcrumb {
     }
 }
 .footer-box {
+    position: fixed;
+    bottom: 0;
     height: 50px;
     padding: 0 0 0 20px;
     position: relative;
     background-color: #f5f5f7;
     border-top:1px solid #e1e1e2;
     
+}
+.content-box-max{
+    width: 100%;
+    position: absolute;
+    left: 0;
+    height: calc(100% - 64px);
+}
+.lay-class{
+    height: calc(100% - 50px);
 }

@@ -1,0 +1,15 @@
+<nz-layout class="main-content">
+    <div nz-row>
+        <div nz-col [nzSpan]="17">
+            <p>
+                <button nz-button nzType="link" nzDanger nzSize="small" (click)="backRoute()">
+                    <i nz-icon nzType="left" nzTheme="outline"></i>
+                </button>
+                <nz-tag [nzColor]="'red'">MV</nz-tag>
+                <span>{{mvInfo?.name}}</span>
+                <span>{{mvInfo?.artistName}}</span>
+            </p>
+        </div>
+        <div nz-col [nzSpan]="7">2</div>
+    </div>
+</nz-layout>

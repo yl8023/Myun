@@ -6,8 +6,12 @@ import { VideoRoutingModule } from './video-routing.module';
 import { VideoComponent } from './video.component';
 
 
+
+
 @NgModule({
-  declarations: [VideoComponent],
+  declarations: [
+    VideoComponent
+  ],
   imports: [
     CommonModule,
     VideoRoutingModule,

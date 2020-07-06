@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 
-import { LayoutComponent } from './layout.component';
+
 import { LayoutRoutingModule } from './layout-routing.module';
 import { FooterComponent } from './components/footer/footer.component';
 import { AudioBtnComponent } from './components/audio-btn/audio-btn.component';
@@ -12,12 +12,13 @@ import { PlayModeComponent } from './components/play-mode/play-mode.component';
 import { PlayListComponent } from './components/play-list/play-list.component';
 import { PlayMusicComponent } from './components/play-music/play-music.component';
 import { SongInfoComponent } from './components/song-info/song-info.component';
-import { HeaderComponent } from './components/header/header.component';
+import { HeaderComponent } from './routes/header/header.component';
+import { LayComponent } from './routes/lay/lay.component';
+import { PlayComponent } from './routes/mv-play/play.component';
 
 
 @NgModule({
   declarations: [
-    LayoutComponent,
     FooterComponent,
     AudioBtnComponent,
     AudioSliderComponent,
@@ -26,7 +27,9 @@ import { HeaderComponent } from './components/header/header.component';
     PlayListComponent,
     PlayMusicComponent,
     SongInfoComponent,
-    HeaderComponent
+    HeaderComponent,
+    LayComponent,
+    PlayComponent
   ],
   imports: [
     CommonModule,

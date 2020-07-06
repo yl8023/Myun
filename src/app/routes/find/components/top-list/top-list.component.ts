@@ -24,12 +24,12 @@ export class TopListComponent implements OnInit {
 
   goSongsDetail(type, id): void {
     if(type){
-      this.router.navigateByUrl('/lay/find/songs-detail/'+ id);
+      this.router.navigateByUrl('/base/lay/find/songs-detail/'+ id);
     }else {
       console.log('歌手');
     }
   }
-  
+  //所有榜单
   getAllList(): void {
     this.http.get(pathUrl['top-list']).subscribe(res => {
       if(res.code == 200) {
@@ -41,15 +41,15 @@ export class TopListComponent implements OnInit {
           }
         })
         for(let i=0;i<this.highQualityTops.length;i++){
-          this.getTop(i);
+          this.getTop(this.highQualityTops[i].id);
         }
         this.getArList();
       }
     })
   }
-
-  getTop(idx): void {
-    this.http.post(pathUrl['topList'], {idx}).subscribe(res => {
+//排行榜
+  getTop(id): void {
+    this.http.post(pathUrl['topList'], {id}).subscribe(res => {
       if(res.code == 200){
         this.highQualityTops.forEach(val =>{
           if(val.ToplistType == res.playlist.ToplistType){
@@ -60,7 +60,7 @@ export class TopListComponent implements OnInit {
       }
     })
   }
-
+//歌手榜
   getArList(): void {
     this.http.post(pathUrl['toplistArtist'],{type: 1}).subscribe(res => {
       if(res.code == 200){

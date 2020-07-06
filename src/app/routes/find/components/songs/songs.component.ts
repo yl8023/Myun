@@ -84,6 +84,6 @@ export class SongsComponent implements OnInit {
   }
 
   goSongsDetail(id): void {
-    this.router.navigateByUrl('/lay/find/songs-detail/'+ id);
+    this.router.navigateByUrl('/base/lay/find/songs-detail/'+ id);
   }
 }

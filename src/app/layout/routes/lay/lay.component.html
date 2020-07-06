@@ -1,6 +1,4 @@
-<nz-layout class="main-layout layout-scrollbar">
-  <app-header></app-header>
-  <nz-layout>
+<nz-layout class="lay-class">
     <nz-sider nzWidth="200px" nzTheme="light">
       <ul nz-menu nzMode="inline" class="sider-menu" >
         <li nz-menu-group *ngFor="let item of Menu; let i = index">
@@ -14,10 +12,10 @@
         </li>
       </ul>
     </nz-sider>
-    <nz-layout class="layout-scrollbar">
+    <nz-layout class="layout-scrollbar" style="background-color: #fafafa">
       <ngx-loading-bar [includeSpinner]="false" [color]="'#555'" [fixed]="false" height="4px"></ngx-loading-bar>
       <nz-layout class="inner-layout">
-        <nz-content>
+        <nz-content style="background-color: #fafafa">
           <router-outlet #outlet="outlet"></router-outlet>
         </nz-content>
       </nz-layout>
@@ -26,4 +24,3 @@
   <nz-footer class="footer-box">
     <app-footer></app-footer>
   </nz-footer>
-</nz-layout>

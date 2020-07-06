@@ -32,7 +32,10 @@ export class RecommendComponent implements OnInit, AfterViewInit {
     this.getDjprogram();
   }
   goSongsDetail(id): void {
-    this.router.navigateByUrl('/lay/find/songs-detail/'+ id);
+    this.router.navigate(['/base/lay/find/songs-detail/', id]);
+  }
+  lookMv(id): void {
+    this.router.navigate(['/base/video-play',{ id }]);
   }
   ngAfterViewInit(): void {
   }

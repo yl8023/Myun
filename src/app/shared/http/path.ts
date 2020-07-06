@@ -37,4 +37,7 @@ export const pathUrl = {
     'mvFirst': environment.url + '/mv/first',                                //最新Mv
     'mvAll': environment.url + '/mv/all',                                   //全部Mv
     'mvExclusiveRcmd': environment.url + '/mv/exclusive/rcmd',              //网易出品MV
+    'mvUrl': environment.url + '/mv/url',                                   //mv播放地址
+    'mvDetail': environment.url + '/mv/detail',                             //mv详情
+    'mvDetailInfo': environment.url + '/mv/detail/info',                    //mv点赞评论转发
 }
