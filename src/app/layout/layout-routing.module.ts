@@ -28,7 +28,7 @@ const routes: Routes = [
 
         },
         {
-          path: 'video-play', component: PlayComponent,
+          path: 'video-play/:id', component: PlayComponent,
         }
       ]
   },

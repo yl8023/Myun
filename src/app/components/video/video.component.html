@@ -1,0 +1,41 @@
+<div class="video-box">
+    <div class="loading">
+        <i *ngIf="videoLoading" nz-icon nzType="loading" nzTheme="outline"></i>
+        <i *ngIf="!playing && !videoLoading" nz-icon nzType="play-circle" nzTheme="outline"></i>
+    </div>
+    <video class="video-el" 
+        (click)="playVideoFn()" 
+        (timeupdate)="timeChange($event)" 
+        (canplay)="loadOver()" 
+        (loadstart)="loadStart()" 
+        #videoPlay 
+        [src]="Path">
+    </video>
+    <div class="video-slider">
+        <nz-slider  [nzTooltipVisible]="'never'" [nzMax]="duration" [(ngModel)]="currentTime"
+            (ngModelChange)="sliderChange($event)">
+        </nz-slider>
+    </div>
+</div>
+<div class="video-controls" nz-row>
+    <div nz-col >
+        <button nzSize="large" (click)="playVideoFn(true)" nz-button nzDanger nzType="link" *ngIf="!playing">
+            <i nz-icon nzType="play-circle" nzTheme="outline"></i>
+        </button>
+        <button nzSize="large" (click)="playVideoFn(false)" nz-button nzDanger nzType="link" *ngIf="playing">
+            <i nz-icon nzType="pause-circle" nzTheme="outline"></i>
+        </button>
+    </div>
+    <p nz-col class="video-time">
+        <span>{{currentTime*1000 | date: 'mm:ss'}}</span> / <span>{{duration*1000 | date: 'mm:ss'}}</span>
+    </p>
+    <div nz-col nzFlex="40%">
+        
+    </div>
+    <div nz-col class="volume" nz-row>
+        <button nz-col nzSize="large" nz-button nzType="link" nzDanger>
+            <i nz-icon nzType="filter" nz-col nzFlex="20px" nzTheme="outline" nzRotate="90"></i>
+        </button>
+        <nz-slider nz-col [(ngModel)]="volume" (ngModelChange)="volumeChange($event)"></nz-slider>
+    </div>
+</div>

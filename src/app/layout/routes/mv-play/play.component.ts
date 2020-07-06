@@ -28,8 +28,7 @@ export class PlayComponent implements OnInit, OnDestroy {
       switchMap(params =>  of(params.get('id')))
     ).subscribe(data => {
       this.mvId = data;
-      console.log(data);
-      // this.getmvUrl(data);
+      this.getmvUrl(data);
       this.getmvDetail(data);
     })
   }

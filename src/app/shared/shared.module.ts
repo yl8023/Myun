@@ -12,6 +12,7 @@ import { CommentComponent } from '../components/comment/comment.component';
 import { ToolsComponent } from '../components/tools-component/tools.component';
 import { LyricComponent } from '../components/lyric/lyric.component';
 import { TabsSelectComponent } from '../components/tabs-select/tabs-select.component';
+import { VideoComponent } from '../components/video/video.component';
 
 import { PlayCountPipe } from '../pipes/play-count.pipe';
 import { ListPipePipe } from '../pipes/list-pipe.pipe';
@@ -30,6 +31,7 @@ const COMPONENTS = [
   ToolsComponent,
   LyricComponent,
   TabsSelectComponent,
+  VideoComponent,
 ];
 
 const DIRECTIVES = [];

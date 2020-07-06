@@ -1,0 +1,47 @@
+.video-box{
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    .loading{
+        position: absolute;
+        width: 32px;
+        height: 32px;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        i{
+            font-weight: 800;
+            font-size: 32px;
+            color: #c62f2f;
+        }
+    }
+    .video-slider{
+        position: absolute;
+        bottom: -8px;
+        padding:0 2px;
+        width: 100%;
+    }
+    .video-el{
+        width: 100%;
+        height: calc(100% - 12px);
+        object-fit: fill
+    }
+}
+.video-controls{
+    background-color: #000;
+    .video-time{
+        line-height: 40px;
+        font-size: 18px;
+        color: #efefef;
+    }
+    .volume{
+        width: 140px;
+        nz-slider{
+            width: 100px;
+            margin-top: 6px;
+        }
+    }
+}

@@ -35,7 +35,7 @@ export class RecommendComponent implements OnInit, AfterViewInit {
     this.router.navigate(['/base/lay/find/songs-detail/', id]);
   }
   lookMv(id): void {
-    this.router.navigate(['/base/video-play',{ id }]);
+    this.router.navigate(['/base/video-play', id]);
   }
   ngAfterViewInit(): void {
   }

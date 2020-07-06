@@ -1,7 +1,7 @@
 <nz-layout class="main-content">
     <div nz-row>
         <div nz-col [nzSpan]="17">
-            <p>
+            <p class="video-name">
                 <button nz-button nzType="link" nzDanger nzSize="small" (click)="backRoute()">
                     <i nz-icon nzType="left" nzTheme="outline"></i>
                 </button>
@@ -9,6 +9,9 @@
                 <span>{{mvInfo?.name}}</span>
                 <span>{{mvInfo?.artistName}}</span>
             </p>
+            <div style="height: 420px;">
+                <app-video [Path]="mvUrl?.url"></app-video>
+            </div>
         </div>
         <div nz-col [nzSpan]="7">2</div>
     </div>
