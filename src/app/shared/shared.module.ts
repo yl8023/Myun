@@ -16,6 +16,7 @@ import { VideoComponent } from '../components/video/video.component';
 
 import { PlayCountPipe } from '../pipes/play-count.pipe';
 import { ListPipePipe } from '../pipes/list-pipe.pipe';
+import { AreaDataPipe } from '../pipes/area-data.pipe';
 
 
 const MODULES = [
@@ -38,7 +39,8 @@ const DIRECTIVES = [];
 
 const PIPES = [
   PlayCountPipe,
-  ListPipePipe
+  ListPipePipe,
+  AreaDataPipe
 ];
 
 @NgModule({

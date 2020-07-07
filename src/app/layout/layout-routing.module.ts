@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 // import { LayoutComponent } from './layout.component';
 import { HeaderComponent } from './routes/header/header.component';
 import { LayComponent } from './routes/lay/lay.component';
-import { PlayComponent } from './routes/mv-play/play.component';
+import { PlayComponent } from './routes/video-play/play.component';
 
 const routes: Routes = [
   {

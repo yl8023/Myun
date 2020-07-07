@@ -1,1 +1,68 @@
-<p>user-info works!</p>
+<nz-layout class="component-main">
+    <div nz-row class="user-info">
+        <div nz-col nzFlex="200px" class="user-pic-box">
+            <i class="loading-img" *ngIf="!userIfo" nz-icon nzType="loading" nzTheme="outline"></i>
+            <img *ngIf="userIfo" [src]="userIfo?.profile.avatarUrl+'?param=200y200'" alt="">
+        </div>
+        <div class="info-box" nz-col nzFlex="auto">
+            <p class="title">
+                <span>{{userIfo?.profile.nickname}}</span>
+                <i nz-icon [nzType]="userIfo?.profile.gender == 1 ? 'man' : 'woman'"
+                    [ngClass]="{'boy':userIfo?.profile.gender == 1, 'girl':userIfo?.profile.gender == 2}"
+                    nzTheme="outline">
+                </i>
+                <span class="level"><i>Lv.{{userIfo?.level}}</i></span>
+            </p>
+            <div class="info-text">
+                <div nz-row class="user-count">
+                    <p nz-col nzSpan="8">
+                        <span>{{userIfo?.profile.eventCount}}</span>
+                        <small>动态</small>
+                    </p>
+                    <p nz-col nzSpan="8">
+                        <span>{{userIfo?.profile.follows}}</span>
+                        <small>关注</small>
+                    </p>
+                    <p nz-col nzSpan="8">
+                        <span>{{userIfo?.profile.followeds}}</span>
+                        <small>粉丝</small>
+                    </p>
+                </div>
+                <div class="user-profile">
+                    <p>
+                        <label>社交网络：</label>
+                        <span></span>
+                    </p>
+                    <p>
+                        <label>所在地区：</label>
+                        <span>{{userIfo?.profile.city | areaData : userIfo?.profile.province}}</span>
+                    </p>
+                    <p>
+                        <label>个人介绍：</label>
+                        <span></span>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="list-box">
+        <div class="list-title">
+            <span>歌单</span>
+            <nz-button-group nzSize="small">
+                <button nz-button >
+                    <i nz-icon nzType="appstore" nzTheme="outline"></i>
+                </button>
+                <button nz-button >
+                    <i nz-icon nzType="unordered-list" nzTheme="outline"></i>
+                </button>
+                <button nz-button >
+                    <i nz-icon nzType="pic-left" nzTheme="outline"></i>
+                </button>
+            </nz-button-group>
+        </div>
+        <div class="item-box">
+            
+        </div>
+    </div>
+</nz-layout>

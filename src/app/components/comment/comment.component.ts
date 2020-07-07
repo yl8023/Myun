@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { HttpService } from '../../shared/http/http.service';
 import { pathUrl } from '../../shared/http/path';
 import { commentType } from '../../base/track';
@@ -13,10 +14,17 @@ export class CommentComponent implements OnInit {
   @Input() mid: any;
   loading: boolean = true;
   comment: any;
-  constructor(private http: HttpService) { }
+  constructor(
+    private router: Router,
+    private http: HttpService
+    ) { }
 
   ngOnInit(): void {
     this.selectType(this.mid);
+  }
+
+  goUserInfo(userId: any): void {
+    this.router.navigate(['/base/lay/user/user-info', userId]);
   }
   
   selectType(id): void {

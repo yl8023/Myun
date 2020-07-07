@@ -1492,6 +1492,11 @@ aproba@^1.1.1:
   resolved "https://registry.yarnpkg.com/aproba/-/aproba-1.2.0.tgz#6802e6264efd18c790a1b0d517f0f2627bf2c94a"
   integrity sha512-Y9J6ZjXtoYh8RnXVCMOU/ttDmk1aBjunq9vO0ta5x85WDQiQfUF9sIPBITdbiiIVcBo03Hi3jMxigBtsddlXRw==
 
+area-data@^5.0.6:
+  version "5.0.6"
+  resolved "https://registry.yarnpkg.com/area-data/-/area-data-5.0.6.tgz#c381c3f88ff9e1050accd07549d206fce2a28d13"
+  integrity sha512-QxLoA+823xXKyhw5S3750I9TToki0OS42HU9ol3rCOsCXfkjtl8RtQ/eoj0cK0Levn4//oEM05FmMumfw/HIlg==
+
 arg@^4.1.0:
   version "4.1.3"
   resolved "https://registry.yarnpkg.com/arg/-/arg-4.1.3.tgz#269fc7ad5b8e42cb63c896d5666017261c144089"

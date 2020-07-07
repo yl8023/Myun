@@ -37,8 +37,8 @@
                     <tr *ngFor="let data of middleTable.data">
                         <td nzEllipsis class="music-name">{{ data.name }}</td>
                         <td nzEllipsis class="music-player">
-                            <span>{{ data.age }}</span>
-                            <i nz-icon nzType="link" nzTheme="outline"></i>
+                            <span>{{ data.ar | listPipe:'name'}}</span>
+                            <i style="line-height: 25px;" nz-icon nzType="link" nzTheme="outline"></i>
                         </td>
                         <td nzAlign="center">
                             {{data.dt | date: 'mm:ss'}}

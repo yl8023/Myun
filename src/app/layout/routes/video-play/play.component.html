@@ -12,6 +12,9 @@
             <div style="height: 400px;">
                 <app-video [Path]="mvUrl?.url"></app-video>
             </div>
+            <div>
+                <app-comment [type]="3" [mid]="mvId"></app-comment>
+            </div>
         </div>
         <div nz-col [nzSpan]="8" class="video-info">
             <p class="title">视频介绍</p>
@@ -20,7 +23,7 @@
                 <p nz-col>播放次数：{{mvInfo?.playCount}}次</p>
             </div>
             <p class="desc">简介：{{mvInfo?.desc}}</p>
-            <p class="tags" *ngIf="mvInfo.videoGroup.length > 0">标签：{{mvInfo?.videoGroup | listPipe: 'name'}}</p>
+            <p class="tags" *ngIf="mvInfo?.videoGroup.length > 0">标签：{{mvInfo?.videoGroup | listPipe: 'name'}}</p>
         </div>
     </div>
 </nz-layout>

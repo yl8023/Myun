@@ -14,7 +14,7 @@ import { PlayMusicComponent } from './components/play-music/play-music.component
 import { SongInfoComponent } from './components/song-info/song-info.component';
 import { HeaderComponent } from './routes/header/header.component';
 import { LayComponent } from './routes/lay/lay.component';
-import { PlayComponent } from './routes/mv-play/play.component';
+import { PlayComponent } from './routes/video-play/play.component';
 
 
 @NgModule({

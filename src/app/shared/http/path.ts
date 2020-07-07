@@ -1,6 +1,13 @@
 import { environment } from '../../../environments/environment';
 
 export const pathUrl = {
+    'userDetail': environment.url + '/user/detail',                          //用户详情（他人）
+    'userPlaylist': environment.url + '/user/playlist',                      //获取用户歌单（他人）
+    'userDj': environment.url + '/user/dj',                                  //获取用户电台（他人）
+    'userFollows': environment.url + '/user/follows',                        //获取用户关注列表（他人）
+    'userFolloweds': environment.url + '/user/followeds',                    //获取用户粉丝列表（他人）
+    'userEvent': environment.url + '/user/event',                            //获取用户动态（他人）
+    'userRecord': environment.url + '/user/record',                          //获取用户的播放记录
     'banner': environment.url + '/banner',                                   //轮播图
     'personalized': environment.url + '/personalized',                       //推荐歌单
     'personalizedDjprogram': environment.url + '/personalized/djprogram',    //推荐电台

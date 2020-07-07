@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../../../../shared/http/http.service';
 import { pathUrl } from '../../../../shared/http/path';
+import { singerType } from '../../../../base/track';
 
 @Component({
   selector: 'app-singers',
@@ -12,21 +13,9 @@ export class SingersComponent implements OnInit {
   pageIndex = 1;
   loading:boolean = true;
   artists = [];
-  areas = [
-    {c:-1,t:'全部',s:true},
-    {c:7,t:'华语',s:false},
-    {c:96,t:'欧美',s:false},
-    {c:8,t:'日本',s:false},
-    {c:16,t:'韩国',s:false},
-    {c:0,t:'其他',s:false},
-  ];
-  types = [
-    {c:-1,t:'全部',s:true},
-    {c:1,t:'男歌手',s:false},
-    {c:2,t:'女歌手',s:false},
-    {c:3,t:'乐队',s:false},
-  ];
-  initials = [{c:'热门',t:-1,s:true},{c:'a',s:false},{c:'b',s:false},{c:'c',s:false},{c:'d',s:false},{c:'e',s:false},{c:'f',s:false},{c:'g',s:false},{c:'h',s:false},{c:'i',s:false},{c:'j',s:false},{c:'k',s:false},{c:'l',s:false},{c:'m',s:false},{c:'n',s:false},{c:'o',s:false},{c:'p',s:false},{c:'q',s:false},{c:'r',s:false},{c:'s',s:false},{c:'t',s:false},{c:'u',s:false},{c:'v',s:false},{c:'w',s:false},{c:'x',s:false},{c:'y',s:false},{c:'z',s:false},{c:'#',t:0,s:false}];
+  areas = singerType.areas;
+  types = singerType.types;
+  initials = singerType.initials;
   constructor(
     private http: HttpService
   ) { }

@@ -9,7 +9,7 @@
             <p class="comment title">精彩评论</p>
             <nz-comment *ngFor="let com of comment?.hotComments" [nzAuthor]="com.user.nickname"
                 [nzDatetime]="com.time | date:'yyyy年MM月dd日 HH:mm'">
-                <nz-avatar nz-comment-avatar nzIcon="user" [nzSrc]="com.user.avatarUrl">
+                <nz-avatar (click)="goUserInfo(com.user.userId)" nz-comment-avatar nzIcon="user" [nzSrc]="com.user.avatarUrl">
                 </nz-avatar>
                 <nz-comment-content>
                     <p>{{com.content}}</p>
@@ -30,7 +30,7 @@
         <div class="comment-box host">
             <p class="comment title">最新评论</p>
             <nz-comment *ngFor="let com of comment?.comments" [nzAuthor]="com.user.nickname" [nzDatetime]="com.time | date:'yyyy年MM月dd日 HH:mm'">
-                <nz-avatar nz-comment-avatar nzIcon="user" [nzSrc]="com.user.avatarUrl">
+                <nz-avatar  (click)="goUserInfo(com.user.userId)" nz-comment-avatar nzIcon="user" [nzSrc]="com.user.avatarUrl">
                 </nz-avatar>
                 <nz-comment-content>
                     <p>{{com.content}}</p>
